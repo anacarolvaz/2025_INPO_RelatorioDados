@@ -1,32 +1,39 @@
----
-title: "Levantamento de Bases de Dados"
-format: gfm
-editor: visual
----
+Levantamento de Bases de Dados
+================
 
 ## Introdução
 
-Este relatório apresenta uma análise exploratória das bases de dados oceânicas e ambientais catalogadas para o Oceano Atlântico Sul e Tropical, com foco em padrões de tipo de serviço, disponibilidade, interoperabilidade e cobertura geográfica.
+Este relatório apresenta uma análise exploratória das bases de dados
+oceânicas e ambientais catalogadas para o Oceano Atlântico Sul e
+Tropical, com foco em padrões de tipo de serviço, disponibilidade,
+interoperabilidade e cobertura geográfica.
 
 ## Métodos
 
 Métodos
 
-O levantamento das bases de dados oceânicas e ambientais foi realizado utilizando uma combinação de metodologias para garantir abrangência, qualidade e reprodutibilidade dos dados:
+O levantamento das bases de dados oceânicas e ambientais foi realizado
+utilizando uma combinação de metodologias para garantir abrangência,
+qualidade e reprodutibilidade dos dados:
 
 1.  Levantamento bibliográfico
 
-Foram consultados artigos científicos e revisões que tratam de bancos de dados relevantes para oceanografia e ciências ambientais.
+Foram consultados artigos científicos e revisões que tratam de bancos de
+dados relevantes para oceanografia e ciências ambientais.
 
-O objetivo foi identificar repositórios utilizados na prática pelos pesquisadores.
+O objetivo foi identificar repositórios utilizados na prática pelos
+pesquisadores.
 
-Todas as referências bibliográficas utilizadas serão incluídas ao final do relatório.
+Todas as referências bibliográficas utilizadas serão incluídas ao final
+do relatório.
 
 2.  Consulta a especialistas
 
 Realizamos entrevistas e consultas com especialistas da área.
 
-Utilizamos a metodologia de bola de neve, na qual os especialistas indicavam outros pesquisadores para expandir a lista de bases e referências relevantes.
+Utilizamos a metodologia de bola de neve, na qual os especialistas
+indicavam outros pesquisadores para expandir a lista de bases e
+referências relevantes.
 
 3.  Questionário para a comunidade científica
 
@@ -36,16 +43,19 @@ Quais repositórios os pesquisadores usam para disponibilizar seus dados.
 
 Quais repositórios utilizam para realizar suas análises e pesquisas.
 
-O questionário foi inicialmente distribuído a um grupo restrito de especialistas e, gradualmente, disponibilizado publicamente para a comunidade científica.
+O questionário foi inicialmente distribuído a um grupo restrito de
+especialistas e, gradualmente, disponibilizado publicamente para a
+comunidade científica.
 
 4.  Catalogação e harmonização das bases de dados
 
-Todas as informações coletadas foram organizadas em uma planilha única (bases.csv) contendo colunas padronizadas, descritas na Tabela 1:
+Todas as informações coletadas foram organizadas em uma planilha única
+(bases.csv) contendo colunas padronizadas, descritas na Tabela 1:
 
-### Tabela 1 -- Cabeçalhos da base de dados e possíveis valores
+### Tabela 1 – Cabeçalhos da base de dados e possíveis valores
 
 | Cabeçalho                                  | Descrição                                                                | Possíveis valores / Observações                |
-|-------------------|--------------------------------|---------------------|
+|--------------------------------------------|--------------------------------------------------------------------------|------------------------------------------------|
 | Sigla                                      | Sigla ou código da base de dados                                         | Texto livre                                    |
 | Nome Completo                              | Nome completo da base                                                    | Texto livre                                    |
 | Tipo de Serviço                            | Tipo de serviço fornecido pela base                                      | Ex: Agregador, Portal, Catálogo                |
@@ -71,28 +81,70 @@ Todas as informações coletadas foram organizadas em uma planilha única (bases
 
 5.  Critérios de inclusão das bases
 
-Para garantir consistência e relevância, aplicamos os seguintes critérios na seleção das bases de dados:
+Para garantir consistência e relevância, aplicamos os seguintes
+critérios na seleção das bases de dados:
 
--   Cobertura espacial: somente bases com cobertura de dados no regiao costeira do Brasil ou no Oceano Atlantico Sul e Tropical foram incluidas.
+- Cobertura espacial: somente bases com cobertura de dados no regiao
+  costeira do Brasil ou no Oceano Atlantico Sul e Tropical foram
+  incluidas.
 
--   Disponibilidade online: apenas bases acessíveis pela internet foram incluídas.
+- Disponibilidade online: apenas bases acessíveis pela internet foram
+  incluídas.
 
--   Catálogos de bases: incluímos catálogos apenas quando continham links válidos para outras bases com dados efetivos.
+- Catálogos de bases: incluímos catálogos apenas quando continham links
+  válidos para outras bases com dados efetivos.
 
--   Bases em implementação: incluímos bases em desenvolvimento apenas se apresentavam dados de teste ou estavam previstas para disponibilização nos próximos seis meses.
+- Bases em implementação: incluímos bases em desenvolvimento apenas se
+  apresentavam dados de teste ou estavam previstas para disponibilização
+  nos próximos seis meses.
 
--   Atualização e manutenção: bases com histórico de atualização ou manutenção regular foram priorizadas.
+- Atualização e manutenção: bases com histórico de atualização ou
+  manutenção regular foram priorizadas.
 
--   Redundância e duplicidade: evitamos incluir múltiplas bases que fornecem exatamente os mesmos dados sem valor agregado.
+- Redundância e duplicidade: evitamos incluir múltiplas bases que
+  fornecem exatamente os mesmos dados sem valor agregado.
 
 ## Resultados
 
-```{r}
+``` r
 # Carregar bibliotecas
 library(tidyverse)
+```
+
+    ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+    ✔ dplyr     1.1.3     ✔ readr     2.1.5
+    ✔ forcats   1.0.0     ✔ stringr   1.5.0
+    ✔ ggplot2   3.5.0     ✔ tibble    3.2.1
+    ✔ lubridate 1.9.3     ✔ tidyr     1.3.0
+    ✔ purrr     1.0.2     
+    ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+    ✖ dplyr::filter() masks stats::filter()
+    ✖ dplyr::lag()    masks stats::lag()
+    ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+``` r
 library(janitor)
+```
+
+    Warning: package 'janitor' was built under R version 4.3.3
+
+
+    Attaching package: 'janitor'
+
+    The following objects are masked from 'package:stats':
+
+        chisq.test, fisher.test
+
+``` r
 library(tidytext)
 library(wordcloud)
+```
+
+    Warning: package 'wordcloud' was built under R version 4.3.3
+
+    Loading required package: RColorBrewer
+
+``` r
 library(ggplot2)
 library(treemapify)
 
@@ -104,32 +156,34 @@ dados_long <- dados |>
   separate_rows(tipo_de_dados_oceanograficos, sep = ";|,") |> 
   separate_rows(tipo_de_interface, sep = ";|,") |> 
   separate_rows(tipo_de_acesso, sep = ";|,")
-
 ```
 
 ### Distribuição por Tipo de Serviço
 
-```{r}
+``` r
 dados |> 
   count(tipo_de_servico, sort = TRUE) |> 
   ggplot(aes(x = reorder(tipo_de_servico, n), y = n)) +
   geom_col(fill = "steelblue") +
   coord_flip() +
   labs(x = "Tipo de Serviço", y = "Contagem", title = "Distribuição por Tipo de Serviço")
+```
 
+![](Relatorio_files/figure-commonmark/unnamed-chunk-2-1.png)
+
+``` r
 # Contagem e porcentagem por Tipo de Serviço
 
 tipo_servico_pct <- dados |>
 count(tipo_de_servico) |>
 mutate(pct = n / sum(n) * 100)
-
 ```
 
-O tipo de serviço mais comum é **`r tipo_servico_pct$tipo_de_servico[1]`**, com `r round(tipo_servico_pct$pct[1], 1)`% das bases.
+O tipo de serviço mais comum é **Agregador**, com 65.2% das bases.
 
 ### Distribuição por Estado Operacional
 
-```{r}
+``` r
 dados |>
 count(estado_operacional, sort = TRUE) |>
 ggplot(aes(x = reorder(estado_operacional, n), y = n)) +
@@ -138,18 +192,21 @@ coord_flip() +
 labs(x = "Estado Operacional", y = "Contagem", title = "Distribuição por Estado Operacional")
 ```
 
-```{r}
+![](Relatorio_files/figure-commonmark/unnamed-chunk-3-1.png)
+
+``` r
 # Contagem e porcentagem por Estado Operacional
 estado_op_pct <- dados |>
 count(estado_operacional) |>
 mutate(pct = n / sum(n) * 100)
 ```
 
-A maior parte das bases está em **`r estado_op_pct$estado_operacional[1]`**, que corresponde a `r round(estado_op_pct$pct[1],1)`% do total.
+A maior parte das bases está em **Ativo**, que corresponde a 92.2% do
+total.
 
 ### Distribuição por Tipo de Dados Oceanográficos
 
-```{r}
+``` r
 library(stringr)
 
 dados_oceanograficos <- dados_long |>
@@ -168,17 +225,30 @@ geom_col(fill = "darkcyan") +
 coord_flip() +
 labs(x = "Tipo de Dado Oceanográfico", y = "Número de bases",
 title = "Distribuição por Tipo de Dados Oceanográficos")
-
-
 ```
+
+![](Relatorio_files/figure-commonmark/unnamed-chunk-5-1.png)
 
 ### Instituições Responsáveis
 
-```{r}
+``` r
 library(treemapify)
 library(ggplot2)
 library(scales)
+```
 
+
+    Attaching package: 'scales'
+
+    The following object is masked from 'package:purrr':
+
+        discard
+
+    The following object is masked from 'package:readr':
+
+        col_factor
+
+``` r
 dados_instituicoes <- dados |> 
   count(instituicao_responsavel_pela_base_de_dados, sort = TRUE) |> 
   filter(!is.na(instituicao_responsavel_pela_base_de_dados))
@@ -195,12 +265,13 @@ ggplot(dados_instituicoes, aes(area = n, fill = n, label = instituicao_responsav
   ) +
   scale_fill_gradient(low = "lightblue", high = "darkblue") +
   labs(title = "Treemap das Instituições Responsáveis")
-
 ```
+
+![](Relatorio_files/figure-commonmark/unnamed-chunk-6-1.png)
 
 ### Exemplos de Dados Disponíveis
 
-```{r}
+``` r
 library(tidytext)
 library(dplyr)
 library(stringr)
@@ -238,14 +309,17 @@ colors = brewer.pal(8, "Dark2")
 )
 ```
 
+![](Relatorio_files/figure-commonmark/unnamed-chunk-7-1.png)
+
 ### Distribuição por País
 
-```{r}
+``` r
 dados |>
 count(pais, sort = TRUE) |>
 ggplot(aes(x = reorder(pais, n), y = n)) +
 geom_col(fill = "darkred") +
 coord_flip() +
 labs(x = "País", y = "Contagem", title = "Distribuição por País")
-
 ```
+
+![](Relatorio_files/figure-commonmark/unnamed-chunk-8-1.png)
