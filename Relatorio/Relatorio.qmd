@@ -1,0 +1,28 @@
+---
+title: "Levantamento de Bases de Dados"
+format: html
+editor: visual
+---
+
+## Introdução
+
+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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
+
+Este relatório apresenta uma análise exploratória das bases de dados oceânicas e ambientais catalogadas para o Oceano Atlântico Sul e Tropical, com foco em padrões de tipo de serviço, disponibilidade, interoperabilidade e cobertura geográfica.
+
+## Métodos
+
+## Resultados
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
