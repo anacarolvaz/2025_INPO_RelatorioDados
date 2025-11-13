@@ -161,12 +161,13 @@ dados_long <- dados |>
 ### Distribuição por Tipo de Serviço
 
 ``` r
-dados |> 
-  count(tipo_de_servico, sort = TRUE) |> 
-  ggplot(aes(x = reorder(tipo_de_servico, n), y = n)) +
-  geom_col(fill = "steelblue") +
-  coord_flip() +
-  labs(x = "Tipo de Serviço", y = "Contagem", title = "Distribuição por Tipo de Serviço")
+dados %>%
+  count(tipo_de_servico, sort = TRUE) %>%
+  ggplot(aes(x = "", y = n, fill = tipo_de_servico)) +
+  geom_col(width = 1, color = "white") +
+  coord_polar(theta = "y") +
+  labs(fill = "Tipo de Serviço", title = "Distribuição por Tipo de Serviço") +
+  theme_void()
 ```
 
 ![](Relatorio_files/figure-commonmark/unnamed-chunk-2-1.png)
