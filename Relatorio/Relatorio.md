@@ -259,7 +259,7 @@ library(RColorBrewer)
 # Stop words em português + palavras irrelevantes
 
 stopwords_pt <- c(
-"de", "da", "do", "em", "para", "com", "e", "a", "o", "os", "as",
+"de", "da", "do", "em", "para", "com", "e", "a", "o", "os", "as", "dados", "dado", 
 "no", "na", "nos", "nas", "por", "um", "uma", "uns", "umas",
 "são", "etc", "co", "como"
 )
