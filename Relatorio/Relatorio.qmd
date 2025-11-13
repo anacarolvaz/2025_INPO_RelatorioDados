@@ -128,26 +128,6 @@ mutate(pct = n / sum(n) * 100)
 
 O tipo de serviço mais comum é **`r tipo_servico_pct$tipo_de_servico[1]`**, com `r round(tipo_servico_pct$pct[1], 1)`% das bases.
 
-### Distribuição por Estado Operacional
-
-```{r}
-dados |>
-count(estado_operacional, sort = TRUE) |>
-ggplot(aes(x = reorder(estado_operacional, n), y = n)) +
-geom_col(fill = "darkorange") +
-coord_flip() +
-labs(x = "Estado Operacional", y = "Contagem", title = "Distribuição por Estado Operacional")
-```
-
-```{r}
-# Contagem e porcentagem por Estado Operacional
-estado_op_pct <- dados |>
-count(estado_operacional) |>
-mutate(pct = n / sum(n) * 100)
-```
-
-A maior parte das bases está em **`r estado_op_pct$estado_operacional[1]`**, que corresponde a `r round(estado_op_pct$pct[1],1)`% do total.
-
 ### Distribuição por Tipo de Dados Oceanográficos
 
 ```{r}
@@ -169,8 +149,6 @@ geom_col(fill = "darkcyan") +
 coord_flip() +
 labs(x = "Tipo de Dado Oceanográfico", y = "Número de bases",
 title = "Distribuição por Tipo de Dados Oceanográficos")
-
-
 ```
 
 ### Instituições Responsáveis
@@ -245,7 +223,7 @@ colors = brewer.pal(8, "Dark2")
 dados |>
 count(pais, sort = TRUE) |>
 ggplot(aes(x = reorder(pais, n), y = n)) +
-geom_col(fill = "darkred") +
+geom_col(fill = "dodgerblue4") +
 coord_flip() +
 labs(x = "País", y = "Contagem", title = "Distribuição por País")
 

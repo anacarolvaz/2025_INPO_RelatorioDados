@@ -180,30 +180,7 @@ count(tipo_de_servico) |>
 mutate(pct = n / sum(n) * 100)
 ```
 
-O tipo de serviço mais comum é **Agregador**, com 65.2% das bases.
-
-### Distribuição por Estado Operacional
-
-``` r
-dados |>
-count(estado_operacional, sort = TRUE) |>
-ggplot(aes(x = reorder(estado_operacional, n), y = n)) +
-geom_col(fill = "darkorange") +
-coord_flip() +
-labs(x = "Estado Operacional", y = "Contagem", title = "Distribuição por Estado Operacional")
-```
-
-![](Relatorio_files/figure-commonmark/unnamed-chunk-3-1.png)
-
-``` r
-# Contagem e porcentagem por Estado Operacional
-estado_op_pct <- dados |>
-count(estado_operacional) |>
-mutate(pct = n / sum(n) * 100)
-```
-
-A maior parte das bases está em **Ativo**, que corresponde a 92.2% do
-total.
+O tipo de serviço mais comum é **Agregador**, com 65.5% das bases.
 
 ### Distribuição por Tipo de Dados Oceanográficos
 
@@ -228,7 +205,7 @@ labs(x = "Tipo de Dado Oceanográfico", y = "Número de bases",
 title = "Distribuição por Tipo de Dados Oceanográficos")
 ```
 
-![](Relatorio_files/figure-commonmark/unnamed-chunk-5-1.png)
+![](Relatorio_files/figure-commonmark/unnamed-chunk-3-1.png)
 
 ### Instituições Responsáveis
 
@@ -268,7 +245,7 @@ ggplot(dados_instituicoes, aes(area = n, fill = n, label = instituicao_responsav
   labs(title = "Treemap das Instituições Responsáveis")
 ```
 
-![](Relatorio_files/figure-commonmark/unnamed-chunk-6-1.png)
+![](Relatorio_files/figure-commonmark/unnamed-chunk-4-1.png)
 
 ### Exemplos de Dados Disponíveis
 
@@ -310,7 +287,7 @@ colors = brewer.pal(8, "Dark2")
 )
 ```
 
-![](Relatorio_files/figure-commonmark/unnamed-chunk-7-1.png)
+![](Relatorio_files/figure-commonmark/unnamed-chunk-5-1.png)
 
 ### Distribuição por País
 
@@ -318,9 +295,9 @@ colors = brewer.pal(8, "Dark2")
 dados |>
 count(pais, sort = TRUE) |>
 ggplot(aes(x = reorder(pais, n), y = n)) +
-geom_col(fill = "darkred") +
+geom_col(fill = "dodgerblue4") +
 coord_flip() +
 labs(x = "País", y = "Contagem", title = "Distribuição por País")
 ```
 
-![](Relatorio_files/figure-commonmark/unnamed-chunk-8-1.png)
+![](Relatorio_files/figure-commonmark/unnamed-chunk-6-1.png)
