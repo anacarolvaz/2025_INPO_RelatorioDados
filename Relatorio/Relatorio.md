@@ -165,7 +165,10 @@ dados voltados a oceanografia e ciências ambientais marinhas. O objetivo
 foi identificar repositórios tanto brasileiros quanto internacionais
 usados por pesquisadores.
 
-Nosso levantamento
+A ferramenta de busca utilizada foi o Google Scholar, e as seguintes
+sequencias de frases foram utilizadas na busca “repositorio dados
+oceanograficos”, “repositorios de oceanografia”, “oceanography
+repository”, “ocean data science initiative”.
 
 2.  **Consulta a especialistas**
 
@@ -249,6 +252,34 @@ critérios na seleção das bases de dados:
 
 ## Resultados
 
+*Levantamento Bibliográfico, Entrevistas e Questionário*
+
+Vinte artigos foram identificados atraves da busca por bases de dados
+oceanograficos no google scholar, a seguir: Bloch Haimson, Lehahn, and
+Sagi (n.d.), Neang et al. (2023), Semeler et al. (2024), Stocks et al.
+(2009), Bridges et al. (n.d.), Taufik Yuniantoro et al. (2020), Wulff
+(2020), Tian (n.d.), Drakopulos, Havice, and Campbell (2022), Neff et
+al. (2017), Armstrong et al. (2019), Buck et al. (2019), Silveira,
+Carapuço, and Miranda (2022), Partelow et al. (2023), Guidi et al.
+(2020), Trice et al. (2021), Fredston and Lowndes (n.d.), Gulino (n.d.),
+Havice et al. (n.d.), Neang et al. (2023).
+
+Foram recebidas treze respostas internas ao INPO, provenientes de
+funcionários e membros do Conselho Científico, e trinta respostas da
+comunidade científica externa (até o momento; atualizar).
+Adicionalmente, foram conduzidas entrevistas não estruturadas com
+aproximadamente dez pesquisadores e gestores, os quais forneceram
+informações sobre as bases de dados utilizadas em suas pesquisas e
+atividades de gestão.
+
+*Número de bases de dados*
+
+Com base nos métodos de levantamento empregados, foram identificadas 150
+bases de dados (até o momento; atualizar). Essas bases abrangem diversos
+domínios das ciências oceânicas, fornecendo uma base robusta para
+subsidiar a implementação da Infraestrutura Nacional de Dados Oceânicos
+e apoiar pesquisadores, gestores e inovadores brasileiros.
+
 ``` r
 # Carregar bibliotecas
 library(tidyverse)
@@ -301,7 +332,7 @@ dados_long <- dados |>
   separate_rows(tipo_de_acesso, sep = ";|,")
 ```
 
-### Distribuição por Tipo de Serviço
+*Distribuição por Tipo de Serviço*
 
 ``` r
 dados %>%
@@ -325,7 +356,16 @@ mutate(pct = n / sum(n) * 100)
 
 O tipo de serviço mais comum é **Agregador**, com 65.5% das bases.
 
-### Distribuição por Tipo de Dados Oceanográficos
+*Distribuição por Tipo de Dados Oceanográficos*
+
+A análise das bases de dados indicou predominância de informações
+relacionadas à oceanografia biológica, seguida pela oceanografia física.
+As categorias de geologia marinha e química oceânica apresentam
+cobertura aproximadamente metade do volume das categorias principais,
+com menos de 40 registros cada. Em contraste, dados referentes às
+dimensões humanas e socioeconômicas das ciências marinhas são escassos,
+estando presentes em apenas quatro bases identificadas, indicando
+lacunas significativas na representação dessas áreas.
 
 ``` r
 library(stringr)
@@ -339,18 +379,37 @@ filter(!is.na(tipo_de_dados_oceanograficos))
 
 # Contagem por categoria
 
-dados_oceanograficos |>
-count(tipo_de_dados_oceanograficos, sort = TRUE) |>
-ggplot(aes(x = reorder(tipo_de_dados_oceanograficos, n), y = n)) +
-geom_col(fill = "darkcyan") +
-coord_flip() +
-labs(x = "Tipo de Dado Oceanográfico", y = "Número de bases",
-title = "Distribuição por Tipo de Dados Oceanográficos")
+dados_oceanograficos |> 
+  count(tipo_de_dados_oceanograficos, sort = TRUE) |> 
+  ggplot(aes(x = reorder(tipo_de_dados_oceanograficos, n), y = n)) +
+  geom_col(fill = "dodgerblue4") +
+  coord_flip() +
+  labs(
+    x = "Tipo de Dado Oceanográfico", 
+    y = "Número de bases",
+    title = "Distribuição por Tipo de Dados Oceanográficos"
+  ) +
+  theme_light() +
+  theme(
+    panel.grid.major = element_blank(),  
+    panel.grid.minor = element_blank())
 ```
 
 ![](Relatorio_files/figure-commonmark/unnamed-chunk-3-1.png)
 
-### Instituições Responsáveis
+*Instituições Responsáveis*
+
+Algumas instituições nacionais e estrangeiras se destacam no número de
+bases, particularmente aquelas ligadas ao Ministério do Meio Ambiente e
+Mudanças Climáticas (incluindo IBAMA e ICMBio), ao Ministério da Ciência
+e Tecnologia, à Comissão Hidrográfica da Marinha e à Univali. Dentre as
+estrangeiras, sobressaem NOAA, IODE-IOC-UNESCO e União Europeia. Esses
+números mostram que a produção e disponibilização de dados ainda recaem
+majoritariamente sobre algumas instituições-chave, o que evidencia sua
+relevância estratégica para o Sistema Nacional de Dados do Oceano. Ao
+mesmo tempo, a presença expressiva de bases estrangeiras destaca
+oportunidades de cooperação internacional e de alinhamento com padrões
+globais de interoperabilidade.
 
 ``` r
 library(treemapify)
@@ -384,13 +443,36 @@ ggplot(dados_instituicoes, aes(area = n, fill = n, label = instituicao_responsav
     reflow = TRUE,
     min.size = 2  # garante que textos muito pequenos não sejam exibidos
   ) +
-  scale_fill_gradient(low = "lightblue", high = "darkblue") +
+  scale_fill_gradient(low = "#cce5ff", high = "dodgerblue4") +
   labs(title = "Treemap das Instituições Responsáveis")
 ```
 
 ![](Relatorio_files/figure-commonmark/unnamed-chunk-4-1.png)
 
-### Exemplos de Dados Disponíveis
+*Dados Disponiveis*
+
+Realizamos uma limpeza e harmonização básica das variáveis listadas nas
+descrições das bases de dados levantadas. Esse processo incluiu a
+padronização de termos, remoção de duplicidades e organização preliminar
+das categorias temáticas, de modo a permitir uma análise inicial da
+oferta de dados oceânicos e costeiros no país.
+
+A partir desse conjunto harmonizado, foi gerada uma nuvem de palavras,
+excluindo termos conectores de baixa relevância analítica (como de, da,
+para, com, um, no, na, entre outros). Essa análise preliminar indica que
+as variáveis mais frequentemente mencionadas refletem os principais
+eixos de monitoramento e pesquisa oceânica atualmente praticados no
+Brasil. Entre os termos mais recorrentes estão — dependendo da sua lista
+final — geralmente temperatura, salinidade, correntes, vento, ondas,
+nível do mar, clorofila, batimetria, entre outros, evidenciando a
+predominância de dados físico-oceanográficos e meteorológicos.
+
+Essa visualização inicial reforça tendências conhecidas da pesquisa
+oceânica no país: a forte dependência de variáveis essenciais para
+modelagem, previsão e monitoramento ambiental; a alta concentração de
+dados derivados de plataformas operacionais; e a subrepresentação
+relativa de dados biogeoquímicos e ecológicos, quando comparados às
+variáveis físicas.
 
 ``` r
 library(tidytext)
@@ -404,7 +486,8 @@ library(RColorBrewer)
 stopwords_pt <- c(
 "de", "da", "do", "em", "para", "com", "e", "a", "o", "os", "as", "dados", "dado", 
 "no", "na", "nos", "nas", "por", "um", "uma", "uns", "umas",
-"são", "etc", "co", "como"
+"são", "etc", "co", "como", "temática", "temáticas", "temático", "temáticos",
+"relativo", "relativa", "tipo", "hora"
 )
 
 # Preparar dados
@@ -432,7 +515,14 @@ colors = brewer.pal(8, "Dark2")
 
 ![](Relatorio_files/figure-commonmark/unnamed-chunk-5-1.png)
 
-### Distribuição por País
+*Distribuição por País*
+
+A maior parte das bases de dados identificadas possui origem no Brasil,
+seguida por bases dos Estados Unidos e por iniciativas de cooperação
+internacional. Esses resultados refletem tanto a produção nacional de
+dados oceanográficos quanto a integração com repositórios globais e
+programas colaborativos, evidenciando a importância de parcerias
+internacionais para o compartilhamento e acesso a informações oceânicas.
 
 ``` r
 dados |>
@@ -440,7 +530,11 @@ count(pais, sort = TRUE) |>
 ggplot(aes(x = reorder(pais, n), y = n)) +
 geom_col(fill = "dodgerblue4") +
 coord_flip() +
-labs(x = "País", y = "Contagem", title = "Distribuição por País")
+labs(x = "País", y = "Número de Bases", title = "Distribuição por País") +
+  theme_light() +
+  theme(
+    panel.grid.major = element_blank(),  
+    panel.grid.minor = element_blank())
 ```
 
 ![](Relatorio_files/figure-commonmark/unnamed-chunk-6-1.png)
@@ -466,10 +560,184 @@ dados %>%
     min.size = 3
   ) +
   scale_fill_manual(
-    values = colorRampPalette(c("#cce5ff", "#004c99"))(length(unique(dados$pais)))
+    values = colorRampPalette(c("#cce5ff", "dodgerblue4"))(length(unique(dados$pais)))
   ) +
   labs(title = "Distribuição por País") +
   theme(legend.position = "none")
 ```
 
 ![](Relatorio_files/figure-commonmark/unnamed-chunk-7-1.png)
+
+<div id="refs" class="references csl-bib-body hanging-indent">
+
+<div id="ref-armstrong2019" class="csl-entry">
+
+Armstrong, Edward M., Mark A. Bourassa, Thomas A. Cram, Maya DeBellis,
+Jocelyn Elya, Frank R. Greguska, Thomas Huang, et al. 2019. “An
+Integrated Data Analytics Platform.” *Frontiers in Marine Science* 6
+(July): 354. <https://doi.org/10.3389/fmars.2019.00354>.
+
+</div>
+
+<div id="ref-blochhaimson" class="csl-entry">
+
+Bloch Haimson, Maya, Yoav Lehahn, and Tomer Sagi. n.d. “An Overview of
+the Ocean Data Ecosystem.”
+<https://doi.org/10.5194/egusphere-2025-1016>.
+
+</div>
+
+<div id="ref-bridges" class="csl-entry">
+
+Bridges, Susan, Julia Hodges, Bruce Wooley, Donald Karpovich, and George
+Brannon Smith. n.d. “Knowledge Discovery in an Oceanographic Database.”
+
+</div>
+
+<div id="ref-buck2019" class="csl-entry">
+
+Buck, Justin J. H., Scott J. Bainbridge, Eugene F. Burger, Alexandra C.
+Kraberg, Matthew Casari, Kenneth S. Casey, Louise Darroch, et al. 2019.
+“Ocean Data Product Integration Through Innovation-The Next Level of
+Data Interoperability.” *Frontiers in Marine Science* 6 (February): 32.
+<https://doi.org/10.3389/fmars.2019.00032>.
+
+</div>
+
+<div id="ref-drakopulos2022" class="csl-entry">
+
+Drakopulos, Lauren, Elizabeth Havice, and Lisa Campbell. 2022.
+“Architecture, Agency and Ocean Data Science Initiatives: Data-Driven
+Transformation of Oceans Governance.” *Earth System Governance* 12
+(April): 100140. <https://doi.org/10.1016/j.esg.2022.100140>.
+
+</div>
+
+<div id="ref-fredston" class="csl-entry">
+
+Fredston, Alexa L, and Julia S Stewart Lowndes. n.d. “Welcoming More
+Participation in Open Data Science for the Oceans.”
+
+</div>
+
+<div id="ref-guidi2020" class="csl-entry">
+
+Guidi, Lionel, Antonio Fernàndez-Guerra, Dorothee Bakker, Carlos
+Canchaya, Edward Curry, Federica Foglini, Jean-Olivier Irission, et al.
+2020. “Big Data in Marine Science.”
+<https://doi.org/10.5281/ZENODO.3755793>.
+
+</div>
+
+<div id="ref-gulino" class="csl-entry">
+
+Gulino, Justin J. n.d. “Ocean Data Science Initiatives Engage in the
+Ocean Science- Policy Interface by Positioning Their Data and Services
+as Policy Relevant.”
+
+</div>
+
+<div id="ref-havice" class="csl-entry">
+
+Havice, Elizabeth, Emily Melvin, Ana Zurita Posas, and Lisa Campbell.
+n.d. “Analysis of Ocean Data Science Initiatives’ Geospatial Data
+Visualizations.” <https://doi.org/10.17615/SNTR-C502>.
+
+</div>
+
+<div id="ref-neang2023" class="csl-entry">
+
+Neang, Andrew B., Will Sutherland, David Ribes, and Charlotte P. Lee.
+2023. “Organizing Oceanographic Infrastructure: The Work of Making a
+Software Pipeline Repurposable.” *Proceedings of the ACM on
+Human-Computer Interaction* 7 (CSCW1): 1–18.
+<https://doi.org/10.1145/3579512>.
+
+</div>
+
+<div id="ref-neff2017" class="csl-entry">
+
+Neff, Gina, Anissa Tanweer, Brittany Fiore-Gartland, and Laura Osburn.
+2017. “Critique and Contribute: A Practice-Based Framework for Improving
+Critical Data Studies and Data Science.” *Big Data* 5 (2): 85–97.
+<https://doi.org/10.1089/big.2016.0050>.
+
+</div>
+
+<div id="ref-partelow2023" class="csl-entry">
+
+Partelow, Stefan, Achim Schlüter, Natalie C. Ban, Simon Batterbury,
+Maarten Bavinck, Nathan J. Bennett, Raimund Bleischwitz, et al. 2023.
+“Five Social Science Intervention Areas for Ocean Sustainability
+Initiatives.” *Npj Ocean Sustainability* 2 (1): 24.
+<https://doi.org/10.1038/s44183-023-00032-8>.
+
+</div>
+
+<div id="ref-semeler2024" class="csl-entry">
+
+Semeler, Alexandre, Luana Farias Sales, Adilson Luiz Pinto, and Carlos
+Luis González-Valient. 2024. “Repositórios de Dados de Pesquisa No
+Domínio Das Geociências: Re3data.org Como Fonte de Dados.” *Revista
+Ibero-Americana de Ciência Da Informação* 17 (3): 524–48.
+<https://doi.org/10.26512/rici.v17.n3.2024.53645>.
+
+</div>
+
+<div id="ref-silveira2022" class="csl-entry">
+
+Silveira, Tanya Mendes, Mafalda Marques Carapuço, and Jorge Miguel
+Miranda. 2022. “The Ever-Changing and Challenging Role of Ocean
+Observation: From Local Initiatives to an Oceanwide Collaborative
+Effort.” *Frontiers in Marine Science* 8 (January): 778452.
+<https://doi.org/10.3389/fmars.2021.778452>.
+
+</div>
+
+<div id="ref-stocks2009" class="csl-entry">
+
+Stocks, Karen I., Chris Condit, Xufei Qian, Paul E. Brewin, and Amarnath
+Gupta. 2009. “Bringing Together an Ocean of Information: An Extensible
+Data Integration Framework for Biological Oceanography.” *Deep Sea
+Research Part II: Topical Studies in Oceanography* 56 (19-20): 1804–11.
+<https://doi.org/10.1016/j.dsr2.2009.05.022>.
+
+</div>
+
+<div id="ref-taufikyuniantoro2020" class="csl-entry">
+
+Taufik Yuniantoro, R. M., Yudi Adityawarman, Marina C. G. Frederik,
+Azalea Eugenie, Agits Agnia Fidzly Almatin, Irham Farhan Herdiardi,
+Fauzan Muhajir, Imas Muliatie, and Sumirah Said. 2020. “2020 IEEE
+Asia-Pacific Conference on Geoscience, Electronics and Remote Sensing
+Technology (AGERS).” In, 1–4. Jakarta, Indonesia: IEEE.
+<https://doi.org/10.1109/AGERS51788.2020.9452755>.
+
+</div>
+
+<div id="ref-tian" class="csl-entry">
+
+Tian, Yubing. n.d. “From Sea to Servers: Temporalities of Data
+Management and the Limits of Availability in Oceanography.”
+
+</div>
+
+<div id="ref-trice2021" class="csl-entry">
+
+Trice, Amy Trice, Chris Robbins Robbins, Nidhisha Philip Philip, and
+Matt Rumsey Rumsey. 2021. “Challenges and Opportunities for Ocean Data
+to Advance Conservation and Management.” Washington, District of
+Columbia United States. <https://doi.org/10.15868/socialsector.43891>.
+
+</div>
+
+<div id="ref-wulff2020" class="csl-entry">
+
+Wulff, Enrique. 2020. “Open Standards Used in Oceanography Research
+Spatial Data Repositories in Spain.” *DESIDOC Journal of Library &
+Information Technology* 40 (05): 306–12.
+<https://doi.org/10.14429/djlit.40.05.15924>.
+
+</div>
+
+</div>

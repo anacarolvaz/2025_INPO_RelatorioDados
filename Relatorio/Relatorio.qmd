@@ -2,6 +2,7 @@
 title: "Levantamento de Bases de Dados"
 format: gfm
 editor: visual
+bibliography: references.bib
 ---
 
 ## Resumo
@@ -56,7 +57,7 @@ O levantamento das bases de dados oceânicas e ambientais foi realizado utilizan
 
 Foi realizado um evantamento bibliográfico de diagnósticos similares assim como de artigos científicos e revisões que tratam de bancos de dados voltados a oceanografia e ciências ambientais marinhas. O objetivo foi identificar repositórios tanto brasileiros quanto internacionais usados por pesquisadores.
 
-Nosso levantamento
+A ferramenta de busca utilizada foi o Google Scholar, e as seguintes sequencias de frases foram utilizadas na busca "repositorio dados oceanograficos", "repositorios de oceanografia", "oceanography repository", "ocean data science initiative".
 
 2.  **Consulta a especialistas**
 
@@ -121,6 +122,16 @@ Para garantir consistência e relevância, aplicamos os seguintes critérios na 
 
 ## Resultados
 
+*Levantamento Bibliográfico, Entrevistas e Questionário*
+
+Vinte artigos foram identificados atraves da busca por bases de dados oceanograficos no google scholar, a seguir: @blochhaimson, @neang2023, @semeler2024, @stocks2009, @bridges, @taufikyuniantoro2020, @wulff2020, @tian, @drakopulos2022, @neff2017, @armstrong2019, @buck2019, @silveira2022, @partelow2023, @guidi2020, @trice2021, @fredston, @gulino, @havice, @neang2023.
+
+Foram recebidas treze respostas internas ao INPO, provenientes de funcionários e membros do Conselho Científico, e trinta respostas da comunidade científica externa (até o momento; atualizar). Adicionalmente, foram conduzidas entrevistas não estruturadas com aproximadamente dez pesquisadores e gestores, os quais forneceram informações sobre as bases de dados utilizadas em suas pesquisas e atividades de gestão.
+
+*Número de bases de dados*
+
+Com base nos métodos de levantamento empregados, foram identificadas 150 bases de dados (até o momento; atualizar). Essas bases abrangem diversos domínios das ciências oceânicas, fornecendo uma base robusta para subsidiar a implementação da Infraestrutura Nacional de Dados Oceânicos e apoiar pesquisadores, gestores e inovadores brasileiros.
+
 ```{r}
 # Carregar bibliotecas
 library(tidyverse)
@@ -141,7 +152,7 @@ dados_long <- dados |>
 
 ```
 
-### Distribuição por Tipo de Serviço
+*Distribuição por Tipo de Serviço*
 
 ```{r}
 dados %>%
@@ -162,7 +173,9 @@ mutate(pct = n / sum(n) * 100)
 
 O tipo de serviço mais comum é **`r tipo_servico_pct$tipo_de_servico[1]`**, com `r round(tipo_servico_pct$pct[1], 1)`% das bases.
 
-### Distribuição por Tipo de Dados Oceanográficos
+*Distribuição por Tipo de Dados Oceanográficos*
+
+A análise das bases de dados indicou predominância de informações relacionadas à oceanografia biológica, seguida pela oceanografia física. As categorias de geologia marinha e química oceânica apresentam cobertura aproximadamente metade do volume das categorias principais, com menos de 40 registros cada. Em contraste, dados referentes às dimensões humanas e socioeconômicas das ciências marinhas são escassos, estando presentes em apenas quatro bases identificadas, indicando lacunas significativas na representação dessas áreas.
 
 ```{r}
 library(stringr)
@@ -176,16 +189,25 @@ filter(!is.na(tipo_de_dados_oceanograficos))
 
 # Contagem por categoria
 
-dados_oceanograficos |>
-count(tipo_de_dados_oceanograficos, sort = TRUE) |>
-ggplot(aes(x = reorder(tipo_de_dados_oceanograficos, n), y = n)) +
-geom_col(fill = "darkcyan") +
-coord_flip() +
-labs(x = "Tipo de Dado Oceanográfico", y = "Número de bases",
-title = "Distribuição por Tipo de Dados Oceanográficos")
+dados_oceanograficos |> 
+  count(tipo_de_dados_oceanograficos, sort = TRUE) |> 
+  ggplot(aes(x = reorder(tipo_de_dados_oceanograficos, n), y = n)) +
+  geom_col(fill = "dodgerblue4") +
+  coord_flip() +
+  labs(
+    x = "Tipo de Dado Oceanográfico", 
+    y = "Número de bases",
+    title = "Distribuição por Tipo de Dados Oceanográficos"
+  ) +
+  theme_light() +
+  theme(
+    panel.grid.major = element_blank(),  
+    panel.grid.minor = element_blank())
 ```
 
-### Instituições Responsáveis
+*Instituições Responsáveis*
+
+Algumas instituições nacionais e estrangeiras se destacam no número de bases, particularmente aquelas ligadas ao Ministério do Meio Ambiente e Mudanças Climáticas (incluindo IBAMA e ICMBio), ao Ministério da Ciência e Tecnologia, à Comissão Hidrográfica da Marinha e à Univali. Dentre as estrangeiras, sobressaem NOAA, IODE-IOC-UNESCO e União Europeia. Esses números mostram que a produção e disponibilização de dados ainda recaem majoritariamente sobre algumas instituições-chave, o que evidencia sua relevância estratégica para o Sistema Nacional de Dados do Oceano. Ao mesmo tempo, a presença expressiva de bases estrangeiras destaca oportunidades de cooperação internacional e de alinhamento com padrões globais de interoperabilidade.
 
 ```{r}
 library(treemapify)
@@ -206,12 +228,18 @@ ggplot(dados_instituicoes, aes(area = n, fill = n, label = instituicao_responsav
     reflow = TRUE,
     min.size = 2  # garante que textos muito pequenos não sejam exibidos
   ) +
-  scale_fill_gradient(low = "lightblue", high = "darkblue") +
+  scale_fill_gradient(low = "#cce5ff", high = "dodgerblue4") +
   labs(title = "Treemap das Instituições Responsáveis")
 
 ```
 
-### Exemplos de Dados Disponíveis
+*Dados Disponiveis*
+
+Realizamos uma limpeza e harmonização básica das variáveis listadas nas descrições das bases de dados levantadas. Esse processo incluiu a padronização de termos, remoção de duplicidades e organização preliminar das categorias temáticas, de modo a permitir uma análise inicial da oferta de dados oceânicos e costeiros no país.
+
+A partir desse conjunto harmonizado, foi gerada uma nuvem de palavras, excluindo termos conectores de baixa relevância analítica (como de, da, para, com, um, no, na, entre outros). Essa análise preliminar indica que as variáveis mais frequentemente mencionadas refletem os principais eixos de monitoramento e pesquisa oceânica atualmente praticados no Brasil. Entre os termos mais recorrentes estão — dependendo da sua lista final — geralmente temperatura, salinidade, correntes, vento, ondas, nível do mar, clorofila, batimetria, entre outros, evidenciando a predominância de dados físico-oceanográficos e meteorológicos.
+
+Essa visualização inicial reforça tendências conhecidas da pesquisa oceânica no país: a forte dependência de variáveis essenciais para modelagem, previsão e monitoramento ambiental; a alta concentração de dados derivados de plataformas operacionais; e a subrepresentação relativa de dados biogeoquímicos e ecológicos, quando comparados às variáveis físicas.
 
 ```{r}
 library(tidytext)
@@ -225,7 +253,8 @@ library(RColorBrewer)
 stopwords_pt <- c(
 "de", "da", "do", "em", "para", "com", "e", "a", "o", "os", "as", "dados", "dado", 
 "no", "na", "nos", "nas", "por", "um", "uma", "uns", "umas",
-"são", "etc", "co", "como"
+"são", "etc", "co", "como", "temática", "temáticas", "temático", "temáticos",
+"relativo", "relativa", "tipo", "hora"
 )
 
 # Preparar dados
@@ -251,7 +280,9 @@ colors = brewer.pal(8, "Dark2")
 )
 ```
 
-### Distribuição por País
+*Distribuição por País*
+
+A maior parte das bases de dados identificadas possui origem no Brasil, seguida por bases dos Estados Unidos e por iniciativas de cooperação internacional. Esses resultados refletem tanto a produção nacional de dados oceanográficos quanto a integração com repositórios globais e programas colaborativos, evidenciando a importância de parcerias internacionais para o compartilhamento e acesso a informações oceânicas.
 
 ```{r}
 dados |>
@@ -259,7 +290,11 @@ count(pais, sort = TRUE) |>
 ggplot(aes(x = reorder(pais, n), y = n)) +
 geom_col(fill = "dodgerblue4") +
 coord_flip() +
-labs(x = "País", y = "Contagem", title = "Distribuição por País")
+labs(x = "País", y = "Número de Bases", title = "Distribuição por País") +
+  theme_light() +
+  theme(
+    panel.grid.major = element_blank(),  
+    panel.grid.minor = element_blank())
 
 ```
 
@@ -284,7 +319,7 @@ dados %>%
     min.size = 3
   ) +
   scale_fill_manual(
-    values = colorRampPalette(c("#cce5ff", "#004c99"))(length(unique(dados$pais)))
+    values = colorRampPalette(c("#cce5ff", "dodgerblue4"))(length(unique(dados$pais)))
   ) +
   labs(title = "Distribuição por País") +
   theme(legend.position = "none")
