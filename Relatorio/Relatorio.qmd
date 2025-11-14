@@ -142,7 +142,7 @@ library(ggplot2)
 library(treemapify)
 
 # Carregar dados
-dados <- read_csv("../Dados/Bases.csv", show_col_types = FALSE) |> clean_names()
+dados <- read_csv("./Dados/Bases.csv", show_col_types = FALSE) |> clean_names()
 
 # Tratar colunas com múltiplas respostas
 dados_long <- dados |> 
@@ -210,6 +210,37 @@ dados_oceanograficos |>
 Algumas instituições nacionais e estrangeiras se destacam no número de bases, particularmente aquelas ligadas ao Ministério do Meio Ambiente e Mudanças Climáticas (incluindo IBAMA e ICMBio), ao Ministério da Ciência e Tecnologia, à Comissão Hidrográfica da Marinha e à Univali. Dentre as estrangeiras, sobressaem NOAA, IODE-IOC-UNESCO e União Europeia. Esses números mostram que a produção e disponibilização de dados ainda recaem majoritariamente sobre algumas instituições-chave, o que evidencia sua relevância estratégica para o Sistema Nacional de Dados do Oceano. Ao mesmo tempo, a presença expressiva de bases estrangeiras destaca oportunidades de cooperação internacional e de alinhamento com padrões globais de interoperabilidade.
 
 ```{r}
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(treemapify)
+
+# Supondo que a coluna com múltiplos nomes seja separada por vírgula ou ponto e vírgula
+dados_separados <- dados %>%
+  filter(!is.na(instituicao_responsavel_pela_base_de_dados)) %>%
+  # separa múltiplos nomes em linhas diferentes
+  separate_rows(instituicao_responsavel_pela_base_de_dados, sep = ",|;") %>%
+  # remove espaços em branco no início/fim
+  mutate(instituicao_responsavel_pela_base_de_dados = trimws(instituicao_responsavel_pela_base_de_dados)) %>%
+  count(instituicao_responsavel_pela_base_de_dados, sort = TRUE)
+
+# Treemap
+ggplot(dados_separados, aes(area = n, fill = n, label = instituicao_responsavel_pela_base_de_dados)) +
+  geom_treemap() +
+  geom_treemap_text(
+    aes(label = instituicao_responsavel_pela_base_de_dados),
+    colour = "white",
+    place = "centre",
+    grow = TRUE,
+    reflow = TRUE,
+    min.size = 2
+  ) +
+  scale_fill_gradient(low = "#78b5ea", high = "dodgerblue4") +
+  labs(title = "Treemap das Instituições Responsáveis")
+```
+
+
+```{r}
 library(treemapify)
 library(ggplot2)
 library(scales)
@@ -228,7 +259,7 @@ ggplot(dados_instituicoes, aes(area = n, fill = n, label = instituicao_responsav
     reflow = TRUE,
     min.size = 2  # garante que textos muito pequenos não sejam exibidos
   ) +
-  scale_fill_gradient(low = "#cce5ff", high = "dodgerblue4") +
+  scale_fill_gradient(low = "#78b5ea", high = "dodgerblue4") +
   labs(title = "Treemap das Instituições Responsáveis")
 
 ```
@@ -319,7 +350,7 @@ dados %>%
     min.size = 3
   ) +
   scale_fill_manual(
-    values = colorRampPalette(c("#cce5ff", "dodgerblue4"))(length(unique(dados$pais)))
+    values = colorRampPalette(c("#78b5ea", "dodgerblue4"))(length(unique(dados$pais)))
   ) +
   labs(title = "Distribuição por País") +
   theme(legend.position = "none")
