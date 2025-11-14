@@ -176,6 +176,29 @@ ggplot(dados_instituicoes, aes(area = n, fill = n, label = instituicao_responsav
   labs(title = "Treemap das Instituições Responsáveis")
 
 ```
+```{r}
+library(tidyverse)
+
+# 1. Separar múltiplas instituições em linhas individuais
+dados_sep <- dados %>%
+  mutate(instituicoes = str_split(instituicao_responsavel_pela_base_de_dados, pattern = "\\s*[-,/]+\\s*")) %>%
+  unnest(instituicoes) %>%
+  mutate(instituicoes = str_trim(instituicoes))  # remove espaços extras
+
+# 2. Contar registros por país e instituição
+instituicao_count <- dados_sep %>%
+  count(pais, instituicoes, sort = TRUE)
+
+# 3. Bubble chart
+ggplot(instituicao_count, aes(x = pais, y = instituicoes, size = n)) +
+  geom_point(alpha = 0.7, color = "#005f99", fill = "#99cfff", shape = 21) +
+  scale_size(range = c(3, 12)) +
+  guides(size = "none") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(title = "Registros por Instituição e País", x = "País", y = "Instituição")
+
+```
 
 ### Exemplos de Dados Disponíveis
 
@@ -226,5 +249,33 @@ ggplot(aes(x = reorder(pais, n), y = n)) +
 geom_col(fill = "dodgerblue4") +
 coord_flip() +
 labs(x = "País", y = "Contagem", title = "Distribuição por País")
+
+```
+
+```{r}
+library(dplyr)
+library(treemapify)
+library(ggplot2)
+
+dados %>% 
+  count(pais, sort = TRUE) %>% 
+  ggplot(aes(
+    area = n,
+    fill = pais,
+    label = pais        # <-- sem números
+  )) +
+  geom_treemap() +
+  geom_treemap_text(
+    place = "centre",
+    grow = TRUE,
+    reflow = TRUE,
+    colour = "white",
+    min.size = 3
+  ) +
+  scale_fill_manual(
+    values = colorRampPalette(c("#cce5ff", "#004c99"))(length(unique(dados$pais)))
+  ) +
+  labs(title = "Distribuição por País") +
+  theme(legend.position = "none")
 
 ```

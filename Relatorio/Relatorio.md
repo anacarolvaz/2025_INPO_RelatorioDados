@@ -301,3 +301,32 @@ labs(x = "País", y = "Contagem", title = "Distribuição por País")
 ```
 
 ![](Relatorio_files/figure-commonmark/unnamed-chunk-6-1.png)
+
+``` r
+library(dplyr)
+library(treemapify)
+library(ggplot2)
+
+dados %>% 
+  count(pais, sort = TRUE) %>% 
+  ggplot(aes(
+    area = n,
+    fill = pais,
+    label = pais        # <-- sem números
+  )) +
+  geom_treemap() +
+  geom_treemap_text(
+    place = "centre",
+    grow = TRUE,
+    reflow = TRUE,
+    colour = "white",
+    min.size = 3
+  ) +
+  scale_fill_manual(
+    values = colorRampPalette(c("#cce5ff", "#004c99"))(length(unique(dados$pais)))
+  ) +
+  labs(title = "Distribuição por País") +
+  theme(legend.position = "none")
+```
+
+![](Relatorio_files/figure-commonmark/unnamed-chunk-7-1.png)
