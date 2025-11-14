@@ -10,13 +10,13 @@ interoperabilidade e cobertura geográfica.
 
 ## Métodos
 
-Métodos
+### Levantamento de bases de dados
 
 O levantamento das bases de dados oceânicas e ambientais foi realizado
 utilizando uma combinação de metodologias para garantir abrangência,
 qualidade e reprodutibilidade dos dados:
 
-1.  Levantamento bibliográfico
+1.  **Levantamento bibliográfico**
 
 Foram consultados artigos científicos e revisões que tratam de bancos de
 dados relevantes para oceanografia e ciências ambientais.
@@ -27,7 +27,7 @@ pesquisadores.
 Todas as referências bibliográficas utilizadas serão incluídas ao final
 do relatório.
 
-2.  Consulta a especialistas
+2.  **Consulta a especialistas**
 
 Realizamos entrevistas e consultas com especialistas da área.
 
@@ -35,19 +35,20 @@ Utilizamos a metodologia de bola de neve, na qual os especialistas
 indicavam outros pesquisadores para expandir a lista de bases e
 referências relevantes.
 
-3.  Questionário para a comunidade científica
+3.  **Questionário para a comunidade científica**
 
 Desenvolvemos um questionário para entender:
 
-Quais repositórios os pesquisadores usam para disponibilizar seus dados.
+- Quais repositórios os pesquisadores usam para disponibilizar seus
+  dados?
 
-Quais repositórios utilizam para realizar suas análises e pesquisas.
+- Quais repositórios utilizam para realizar suas análises e pesquisas?
 
 O questionário foi inicialmente distribuído a um grupo restrito de
 especialistas e, gradualmente, disponibilizado publicamente para a
 comunidade científica.
 
-4.  Catalogação e harmonização das bases de dados
+4.  **Catalogação e harmonização das bases de dados**
 
 Todas as informações coletadas foram organizadas em uma planilha única
 (bases.csv) contendo colunas padronizadas, descritas na Tabela 1:
@@ -79,29 +80,29 @@ Todas as informações coletadas foram organizadas em uma planilha única
 | Contato responsável pelos dados            | Pessoa ou e-mail de contato                                              | Texto livre                                    |
 | Tipo de licença de uso                     | Licença ou restrição                                                     | Ex: CC-BY, Restrito, Público                   |
 
-5.  Critérios de inclusão das bases
+### Critérios de inclusão das bases
 
 Para garantir consistência e relevância, aplicamos os seguintes
 critérios na seleção das bases de dados:
 
-- Cobertura espacial: somente bases com cobertura de dados no regiao
+- **Cobertura espacial**: somente bases com cobertura de dados no regiao
   costeira do Brasil ou no Oceano Atlantico Sul e Tropical foram
   incluidas.
 
-- Disponibilidade online: apenas bases acessíveis pela internet foram
-  incluídas.
+- **Disponibilidade online**: apenas bases acessíveis pela internet
+  foram incluídas.
 
-- Catálogos de bases: incluímos catálogos apenas quando continham links
-  válidos para outras bases com dados efetivos.
+- **Catálogos de bases**: incluímos catálogos apenas quando continham
+  links válidos para outras bases com dados efetivos.
 
-- Bases em implementação: incluímos bases em desenvolvimento apenas se
-  apresentavam dados de teste ou estavam previstas para disponibilização
-  nos próximos seis meses.
+- **Bases em implementação**: incluímos bases em desenvolvimento apenas
+  se apresentavam dados de teste ou estavam previstas para
+  disponibilização nos próximos seis meses.
 
-- Atualização e manutenção: bases com histórico de atualização ou
+- **Atualização e manutenção**: bases com histórico de atualização ou
   manutenção regular foram priorizadas.
 
-- Redundância e duplicidade: evitamos incluir múltiplas bases que
+- **Redundância e duplicidade**: evitamos incluir múltiplas bases que
   fornecem exatamente os mesmos dados sem valor agregado.
 
 ## Resultados
@@ -247,6 +248,66 @@ ggplot(dados_instituicoes, aes(area = n, fill = n, label = instituicao_responsav
 
 ![](Relatorio_files/figure-commonmark/unnamed-chunk-4-1.png)
 
+``` r
+library(dplyr)
+library(tidyr)
+library(stringr)
+library(networkD3)
+```
+
+    Warning: package 'networkD3' was built under R version 4.3.3
+
+``` r
+# --- Supondo que seus dados estão assim ---
+# dados <- read.csv("sua_planilha.csv") 
+# com colunas: pais, instituicao_responsavel_pela_base_de_dados
+
+# 1. Separar múltiplas instituições
+dados_long <- dados %>%
+  mutate(instituicao_responsavel_pela_base_de_dados = str_replace_all(instituicao_responsavel_pela_base_de_dados, " - |/|,", ",")) %>%
+  separate_rows(instituicao_responsavel_pela_base_de_dados, sep = ",") %>%
+  mutate(instituicao_responsavel_pela_base_de_dados = str_trim(instituicao_responsavel_pela_base_de_dados))
+
+# 2. Contar ocorrências de cada instituição por país
+contagem <- dados_long %>%
+  count(pais, instituicao_responsavel_pela_base_de_dados, sort = TRUE)
+
+# 3. Remover países que aparecem apenas uma vez
+pais_filtrados <- contagem %>% count(pais) %>% filter(n > 1) %>% pull(pais)
+contagem <- contagem %>% filter(pais %in% pais_filtrados)
+
+# 4. Criar nós
+nodes <- data.frame(name = c(unique(contagem$pais), unique(contagem$instituicao_responsavel_pela_base_de_dados)))
+
+# 5. Criar links e cores por país
+pais_cores <- c("Brasil" = "#1f77b4", "Internacional" = "#9467bd") # adicione todos os países com cores desejadas
+links <- contagem %>%
+  mutate(
+    source = match(pais, nodes$name) - 1,
+    target = match(instituicao_responsavel_pela_base_de_dados, nodes$name) - 1,
+    value = n,
+    linkColour = pais_cores[pais]
+  )
+
+# 6. Plot Sankey
+sankeyNetwork(
+  Links = links,
+  Nodes = nodes,
+  Source = "source",
+  Target = "target",
+  Value = "value",
+  NodeID = "name",
+  fontSize = 12,
+  nodeWidth = 30,
+  colourScale = 'd3.scaleOrdinal().domain(["Brasil","Internacional"]).range(["#1f77b4","#9467bd"])',
+  LinkGroup = "linkColour"
+)
+```
+
+    Links is a tbl_df. Converting to a plain data frame.
+
+![](Relatorio_files/figure-commonmark/unnamed-chunk-5-1.png)
+
 ### Exemplos de Dados Disponíveis
 
 ``` r
@@ -287,7 +348,7 @@ colors = brewer.pal(8, "Dark2")
 )
 ```
 
-![](Relatorio_files/figure-commonmark/unnamed-chunk-5-1.png)
+![](Relatorio_files/figure-commonmark/unnamed-chunk-6-1.png)
 
 ### Distribuição por País
 
@@ -300,7 +361,7 @@ coord_flip() +
 labs(x = "País", y = "Contagem", title = "Distribuição por País")
 ```
 
-![](Relatorio_files/figure-commonmark/unnamed-chunk-6-1.png)
+![](Relatorio_files/figure-commonmark/unnamed-chunk-7-1.png)
 
 ``` r
 library(dplyr)
@@ -329,4 +390,4 @@ dados %>%
   theme(legend.position = "none")
 ```
 
-![](Relatorio_files/figure-commonmark/unnamed-chunk-7-1.png)
+![](Relatorio_files/figure-commonmark/unnamed-chunk-8-1.png)
