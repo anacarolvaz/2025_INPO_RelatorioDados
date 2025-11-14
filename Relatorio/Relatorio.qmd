@@ -44,6 +44,7 @@ O Diagnóstico Nacional sobre o Oceano é essencial para o desenvolvimento de um
 No primeiro ciclo, o Diagnóstico resultará em uma síntese das bases de dados atualmente disponíveis, contendo informações essenciais para a utilização por pesquisadores, inovadores e demais atores do ecossistema oceânico brasileiro. A planilha gerada reúne dados como sigla, nome completo, tipo de serviço, estado operacional, disponibilidade em tempo real, abertura dos dados, protocolos e APIs, tipos de interface e acesso, descrição da base, tipos e exemplos de dados oceanográficos, instituição responsável, cobertura geográfica, país, links, observações, protocolos de interoperabilidade, contato responsável e tipo de licença de uso (Tabela 1).
 
 Embora ainda seja um levantamento inicial, essa listagem já representa um passo importante para consolidar a infraestrutura de dados no país, oferecendo à comunidade científica e tecnológica uma visão organizada do que está disponível e permitindo planejar de forma mais eficiente o acesso, compartilhamento e integração de informações essenciais para pesquisa, inovação e tomada de decisão estratégica.
+
 ## Métodos
 
 ### Levantamento de bases de dados
