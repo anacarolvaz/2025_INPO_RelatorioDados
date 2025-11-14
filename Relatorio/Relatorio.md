@@ -335,13 +335,19 @@ dados_long <- dados |>
 *Distribuição por Tipo de Serviço*
 
 ``` r
+library(dplyr)
+library(ggplot2)
+library(RColorBrewer)
+
+# Gráfico de pizza com tons de azul
 dados %>%
   count(tipo_de_servico, sort = TRUE) %>%
   ggplot(aes(x = "", y = n, fill = tipo_de_servico)) +
   geom_col(width = 1, color = "white") +
   coord_polar(theta = "y") +
   labs(fill = "Tipo de Serviço", title = "Distribuição por Tipo de Serviço") +
-  theme_void()
+  theme_void() +
+  scale_fill_brewer(palette = "Blues")  # tons de azul
 ```
 
 ![](Relatorio_files/figure-commonmark/unnamed-chunk-2-1.png)
@@ -401,8 +407,8 @@ dados_oceanograficos |>
 
 Algumas instituições nacionais e estrangeiras se destacam no número de
 bases, particularmente aquelas ligadas ao Ministério do Meio Ambiente e
-Mudanças Climáticas (incluindo IBAMA e ICMBio), ao Ministério da Ciência
-e Tecnologia, à Comissão Hidrográfica da Marinha e à Univali. Dentre as
+Mudanças Climáticas (ao incluir IBAMA e ICMBio), à Comissão Hidrográfica
+da Marinha e a Universidades Brasileiras (ex. Univali, FURG). Dentre as
 estrangeiras, sobressaem NOAA, IODE-IOC-UNESCO e União Europeia. Esses
 números mostram que a produção e disponibilização de dados ainda recaem
 majoritariamente sobre algumas instituições-chave, o que evidencia sua
@@ -412,28 +418,22 @@ oportunidades de cooperação internacional e de alinhamento com padrões
 globais de interoperabilidade.
 
 ``` r
-library(treemapify)
+library(dplyr)
+library(tidyr)
 library(ggplot2)
-library(scales)
-```
+library(treemapify)
 
+# Supondo que a coluna com múltiplos nomes seja separada por vírgula ou ponto e vírgula
+dados_separados <- dados %>%
+  filter(!is.na(instituicao_responsavel_pela_base_de_dados)) %>%
+  # separa múltiplos nomes em linhas diferentes
+  separate_rows(instituicao_responsavel_pela_base_de_dados, sep = ",|;") %>%
+  # remove espaços em branco no início/fim
+  mutate(instituicao_responsavel_pela_base_de_dados = trimws(instituicao_responsavel_pela_base_de_dados)) %>%
+  count(instituicao_responsavel_pela_base_de_dados, sort = TRUE)
 
-    Attaching package: 'scales'
-
-    The following object is masked from 'package:purrr':
-
-        discard
-
-    The following object is masked from 'package:readr':
-
-        col_factor
-
-``` r
-dados_instituicoes <- dados |> 
-  count(instituicao_responsavel_pela_base_de_dados, sort = TRUE) |> 
-  filter(!is.na(instituicao_responsavel_pela_base_de_dados))
-
-ggplot(dados_instituicoes, aes(area = n, fill = n, label = instituicao_responsavel_pela_base_de_dados)) +
+# Treemap
+ggplot(dados_separados, aes(area = n, fill = n, label = instituicao_responsavel_pela_base_de_dados)) +
   geom_treemap() +
   geom_treemap_text(
     aes(label = instituicao_responsavel_pela_base_de_dados),
@@ -441,9 +441,9 @@ ggplot(dados_instituicoes, aes(area = n, fill = n, label = instituicao_responsav
     place = "centre",
     grow = TRUE,
     reflow = TRUE,
-    min.size = 2  # garante que textos muito pequenos não sejam exibidos
+    min.size = 2
   ) +
-  scale_fill_gradient(low = "#cce5ff", high = "dodgerblue4") +
+  scale_fill_gradient(low = "#78b5ea", high = "dodgerblue4") +
   labs(title = "Treemap das Instituições Responsáveis")
 ```
 
@@ -515,6 +515,30 @@ colors = brewer.pal(8, "Dark2")
 
 ![](Relatorio_files/figure-commonmark/unnamed-chunk-5-1.png)
 
+*Cobertura de Dados*
+
+``` r
+library(dplyr)
+library(ggplot2)
+library(RColorBrewer)
+
+# Contagem por cobertura de dados
+dados %>%
+  count(cobertura_dados, sort = TRUE) %>%
+  ggplot(aes(x = reorder(cobertura_dados, n), y = n, fill = cobertura_dados)) +
+  geom_col(fill = "dodgerblue4") +
+  coord_flip() +
+  labs(x = "Cobertura de Dados", y = "Número de bases", 
+       title = "Distribuição das Bases por Cobertura de Dados") +
+  theme(legend.position = "none") + 
+  theme_light() +
+  theme(
+    panel.grid.major = element_blank(),  
+    panel.grid.minor = element_blank())
+```
+
+![](Relatorio_files/figure-commonmark/unnamed-chunk-6-1.png)
+
 *Distribuição por País*
 
 A maior parte das bases de dados identificadas possui origem no Brasil,
@@ -537,7 +561,7 @@ labs(x = "País", y = "Número de Bases", title = "Distribuição por País") +
     panel.grid.minor = element_blank())
 ```
 
-![](Relatorio_files/figure-commonmark/unnamed-chunk-6-1.png)
+![](Relatorio_files/figure-commonmark/unnamed-chunk-7-1.png)
 
 ``` r
 library(dplyr)
@@ -560,13 +584,13 @@ dados %>%
     min.size = 3
   ) +
   scale_fill_manual(
-    values = colorRampPalette(c("#cce5ff", "dodgerblue4"))(length(unique(dados$pais)))
+    values = colorRampPalette(c("#78b5ea", "dodgerblue4"))(length(unique(dados$pais)))
   ) +
   labs(title = "Distribuição por País") +
   theme(legend.position = "none")
 ```
 
-![](Relatorio_files/figure-commonmark/unnamed-chunk-7-1.png)
+![](Relatorio_files/figure-commonmark/unnamed-chunk-8-1.png)
 
 <div id="refs" class="references csl-bib-body hanging-indent">
 

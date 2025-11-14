@@ -142,7 +142,7 @@ library(ggplot2)
 library(treemapify)
 
 # Carregar dados
-dados <- read_csv("./Dados/Bases.csv", show_col_types = FALSE) |> clean_names()
+dados <- read_csv("../Dados/Bases.csv", show_col_types = FALSE) |> clean_names()
 
 # Tratar colunas com múltiplas respostas
 dados_long <- dados |> 
@@ -155,13 +155,19 @@ dados_long <- dados |>
 *Distribuição por Tipo de Serviço*
 
 ```{r}
+library(dplyr)
+library(ggplot2)
+library(RColorBrewer)
+
+# Gráfico de pizza com tons de azul
 dados %>%
   count(tipo_de_servico, sort = TRUE) %>%
   ggplot(aes(x = "", y = n, fill = tipo_de_servico)) +
   geom_col(width = 1, color = "white") +
   coord_polar(theta = "y") +
   labs(fill = "Tipo de Serviço", title = "Distribuição por Tipo de Serviço") +
-  theme_void()
+  theme_void() +
+  scale_fill_brewer(palette = "Blues")  # tons de azul
 
 # Contagem e porcentagem por Tipo de Serviço
 
@@ -207,7 +213,7 @@ dados_oceanograficos |>
 
 *Instituições Responsáveis*
 
-Algumas instituições nacionais e estrangeiras se destacam no número de bases, particularmente aquelas ligadas ao Ministério do Meio Ambiente e Mudanças Climáticas (incluindo IBAMA e ICMBio), ao Ministério da Ciência e Tecnologia, à Comissão Hidrográfica da Marinha e à Univali. Dentre as estrangeiras, sobressaem NOAA, IODE-IOC-UNESCO e União Europeia. Esses números mostram que a produção e disponibilização de dados ainda recaem majoritariamente sobre algumas instituições-chave, o que evidencia sua relevância estratégica para o Sistema Nacional de Dados do Oceano. Ao mesmo tempo, a presença expressiva de bases estrangeiras destaca oportunidades de cooperação internacional e de alinhamento com padrões globais de interoperabilidade.
+Algumas instituições nacionais e estrangeiras se destacam no número de bases, particularmente aquelas ligadas ao Ministério do Meio Ambiente e Mudanças Climáticas (ao incluir IBAMA e ICMBio), à Comissão Hidrográfica da Marinha e a Universidades Brasileiras (ex. Univali, FURG). Dentre as estrangeiras, sobressaem NOAA, IODE-IOC-UNESCO e União Europeia. Esses números mostram que a produção e disponibilização de dados ainda recaem majoritariamente sobre algumas instituições-chave, o que evidencia sua relevância estratégica para o Sistema Nacional de Dados do Oceano. Ao mesmo tempo, a presença expressiva de bases estrangeiras destaca oportunidades de cooperação internacional e de alinhamento com padrões globais de interoperabilidade.
 
 ```{r}
 library(dplyr)
@@ -237,31 +243,6 @@ ggplot(dados_separados, aes(area = n, fill = n, label = instituicao_responsavel_
   ) +
   scale_fill_gradient(low = "#78b5ea", high = "dodgerblue4") +
   labs(title = "Treemap das Instituições Responsáveis")
-```
-
-
-```{r}
-library(treemapify)
-library(ggplot2)
-library(scales)
-
-dados_instituicoes <- dados |> 
-  count(instituicao_responsavel_pela_base_de_dados, sort = TRUE) |> 
-  filter(!is.na(instituicao_responsavel_pela_base_de_dados))
-
-ggplot(dados_instituicoes, aes(area = n, fill = n, label = instituicao_responsavel_pela_base_de_dados)) +
-  geom_treemap() +
-  geom_treemap_text(
-    aes(label = instituicao_responsavel_pela_base_de_dados),
-    colour = "white",
-    place = "centre",
-    grow = TRUE,
-    reflow = TRUE,
-    min.size = 2  # garante que textos muito pequenos não sejam exibidos
-  ) +
-  scale_fill_gradient(low = "#78b5ea", high = "dodgerblue4") +
-  labs(title = "Treemap das Instituições Responsáveis")
-
 ```
 
 *Dados Disponiveis*
@@ -311,6 +292,36 @@ colors = brewer.pal(8, "Dark2")
 )
 ```
 
+*Cobertura de Dados*
+
+Levando em consideração a cobertura geográfica das bases de dados, definimos como nacionais aquelas que incluem dados costeiros do Brasil, dentro da Zona Econômica Exclusiva, no Oceano Atlântico Sudoeste ou Tropical, enquanto bases globais abrangem áreas além desses limites. Observa-se que a maioria das bases (n = 74) possui cobertura global, seguidas por 36 bases com cobertura nacional, e apenas 3 bases específicas do Atlântico Sul e Atlântico Tropical. Esses números evidenciam a predominância de bases com abrangência global, mas também indicam a existência de conjuntos de dados estratégicos para análises regionais e nacionais.
+
+```{r}
+library(dplyr)
+library(ggplot2)
+library(RColorBrewer)
+
+# Contagem por cobertura de dados
+dados %>%
+  count(cobertura_dados, sort = TRUE) %>%
+  ggplot(aes(x = reorder(cobertura_dados, n), y = n, fill = cobertura_dados)) +
+  geom_col(fill = "dodgerblue4") +
+  coord_flip() +
+  labs(x = "Cobertura de Dados", y = "Número de bases", 
+       title = "Distribuição das Bases por Cobertura de Dados") +
+  theme(legend.position = "none") + 
+  theme_light() +
+  theme(
+    panel.grid.major = element_blank(),  
+    panel.grid.minor = element_blank())
+
+# Contagem por cobertura de dados
+tipo_cobertura <- dados %>%
+  count(cobertura_dados, sort = TRUE)
+
+tipo_cobertura
+```
+
 *Distribuição por País*
 
 A maior parte das bases de dados identificadas possui origem no Brasil, seguida por bases dos Estados Unidos e por iniciativas de cooperação internacional. Esses resultados refletem tanto a produção nacional de dados oceanográficos quanto a integração com repositórios globais e programas colaborativos, evidenciando a importância de parcerias internacionais para o compartilhamento e acesso a informações oceânicas.
@@ -356,3 +367,4 @@ dados %>%
   theme(legend.position = "none")
 
 ```
+
