@@ -1,12 +1,152 @@
 Levantamento de Bases de Dados
 ================
 
+## Resumo
+
 ## Introdução
 
-Este relatório apresenta uma análise exploratória das bases de dados
-oceânicas e ambientais catalogadas para o Oceano Atlântico Sul e
-Tropical, com foco em padrões de tipo de serviço, disponibilidade,
-interoperabilidade e cobertura geográfica.
+Nesse relatório, o objetivo principal é apresentar um Diagnóstico
+Nacional sobre o Oceano, mapeando o cenário brasileiro de pesquisa,
+desenvolvimento e inovação (PD&I) marinha, com foco na gestão de dados
+oceânicos, infraestrutura de pesquisa, inovação tecnológica e aplicação
+do conhecimento científico pela sociedade. O diagnóstico busca
+identificar lacunas e demandas nacionais, apoiar políticas públicas,
+fortalecer a ciência baseada em evidências e gerar informações que
+subsidiem decisões estratégicas em setores governamentais, empresariais
+e acadêmicos. O estudo será desenvolvido em ciclos, permitindo foco em
+diferentes aspectos fundamentais da PD&I marinha, sendo o primeiro ciclo
+dedicado à infraestrutura de dados oceânicos, com o objetivo de mapear
+as bases de dados existentes, seus métodos e protocolos, promover a
+interoperabilidade e evitar silos de informação, garantindo que os dados
+produzidos no Brasil possam ser integrados, utilizados e compartilhados
+de forma ampla.
+
+*Contexto da Ciência Oceânica no Brasil e Evolução da Gestão de Dados*
+
+Nas últimas duas décadas, a ciência oceânica no Brasil tem passado por
+mudanças significativas na disponibilidade, acessibilidade e gestão de
+dados. No início dos anos 2000, o armazenamento dos dados oceanográficos
+era fragmentado, nao somente no Brasil mas tambem no contexto mundial,
+com dados concentrados em laboratorios individuais de instituições de
+pesquisa. Nao havia uma grande padronização, nem como mecanismos
+compartilhados para disponibilidade desses dados compartilhamento. Nos
+ultimos 20 anos vimos uma mudanca nesse panorama, com o desenvolvimento
+de repositórios e plataformas de dados – tantos nacionais como
+internacionais – que permitem o compartilhamento de dados e acesso a
+fontes diversas. Plataformas nacionais como o SiBBr, INPE-BIG, INDE, em
+âmbito internacional, o WOD, SeaDataNet e PANGAEA, tem ampliado o acesso
+e a interoperabilidade de informações oceânicas.
+
+Um fator central dessa transformação é a expansão da coleta de dados,
+impulsionada por boias, sensores autônomos, veículos não tripulados,
+imagens de satélite e iniciativas de ciência cidadã. Os desafios
+recentes, tanto na ciência quanto na gestão baseada em evidências – em
+particular as mudanças climáticas – demandam um volume cada vez maior de
+dados, como ocorre em modelos do Sistema Terrestre Global, que assimilam
+informações para melhorar sua performance, ou em gêmeos digitais
+(digital twins), que replicam sistemas complexos para simulação e
+análise. Nesse contexto, observa-se também um crescente movimento de
+formação de redes nacionais e globais de observação. Essas mudanças
+colocam a pesquisa brasileira em oceanografia na era do big data,
+caracterizada por grandes volumes, formatos diversos e conjuntos de
+dados dispersos. Apesar dos avanços, ainda existe fragmentação, e os
+pesquisadores enfrentam desafios para localizar, acessar e integrar
+diferentes conjuntos de dados devido à falta de padronização e de
+protocolos de metadados consistentes.
+
+O gerenciamento adequado de dados de pesquisa é um desafio persistente.
+Dados bem organizados garantem que possam ser reutilizados além do
+projeto que os produziu. No Brasil, agências de fomento como CNPq, CAPES
+e FAPs têm incentivado políticas de ciência aberta, buscando assegurar a
+acessibilidade e preservação das informações científicas a longo prazo.
+A prática de disponibilizar dados de pesquisa é um princípio da ciência
+aberta, com impactos positivos na qualidade científica, na promoção de
+pesquisas interdisciplinares e na redução de esforços duplicados.
+Entretanto, iniciativas de dados abertos ainda enfrentam desafios
+estruturais no país, incluindo financiamento de longo prazo, manutenção
+de repositórios e necessidade de padronização nacional, o que reforça a
+importância de políticas integradas e investimentos contínuos em
+infraestrutura de dados.
+
+*O INPO*
+
+O Instituto Nacional de Pesquisas Oceânicas (INPO) é a única OS
+vinculada ao Ministério da Ciência, Tecnologia e Inovação (MCTI) atuante
+na área oceânica. O INPO atua como catalisador das atividades de PD&I na
+oceanografia brasileira, com missão de gerar e integrar conhecimento
+científico, apoiar políticas públicas e promover a inovação tecnológica,
+contribuindo para o desenvolvimento sustentável do país.
+
+O INPO desenvolve processos estruturantes que fortalecem a capacidade
+nacional de pesquisa, integram dados e infraestrutura e garantem a
+aplicabilidade do conhecimento pela sociedade, setor privado e órgãos
+governamentais. Entre esses projetos, destaca-se a implementação do SADD
+(Sistema de Acesso a Dados e Documentos Oceanográficos, nome
+provisório), que visa atender à demanda da comunidade científica por uma
+infraestrutura de dados interoperável e de fácil acesso, reunindo todos
+os dados oceanográficos e costeiros do Brasil.
+
+Dentro do contrato de gestão, o INPO é responsável pelos Objetivos do
+Diagnóstico Nacional sobre o Oceano, cujo principal propósito é mapear o
+cenário brasileiro de PD&I marinha, subsidiando a Agenda Científica do
+INPO e apoiando decisões estratégicas em pesquisa, inovação e políticas
+públicas. Especificamente, o diagnóstico busca:
+
+- Identificar lacunas nacionais em P&D marinha;
+
+- Revelar os problemas prementes e suas correlações com eventos extremos
+  e impactos da variabilidade climática e da ação antrópica no mar;
+
+- Identificar demandas dos sistemas públicos de gestão de riscos e
+  prevenção de desastres;
+
+- Propiciar maior segurança nos investimentos e gerar emprego e renda em
+  médio e longo prazos.
+
+Os temas centrais incluem pesca e aquicultura marinha, fontes de energia
+do oceano, transporte marítimo e operações portuárias, priorizando áreas
+que possam gerar produtos e serviços comercializáveis e subsidiar a
+elaboração de policy briefs e a implementação do SID-Oceano.
+
+O diagnóstico será desenvolvido em ciclos, combinando diferentes
+abordagens metodológicas para garantir abrangência e representatividade.
+O processo está em andamento em 2025, e os resultados esperados incluem
+a consolidação da Agenda Científica do INPO, o fortalecimento da
+infraestrutura de dados e pesquisa, a geração de produtos e serviços
+inovadores e o fornecimento de subsídios estratégicos para políticas
+públicas e decisões empresariais.
+
+- Diagnóstico de Dados \*
+
+O Diagnóstico Nacional sobre o Oceano é essencial para o desenvolvimento
+de uma infraestrutura de dados capaz de atender aos anseios e
+necessidades da comunidade científica, do setor empresarial e de
+inovação na área de oceanografia. O Diagnóstico também visa mapear as
+bases de dados existentes, seus métodos e protocolos, promover a
+interoperabilidade e evitar silos de informação, garantindo que os dados
+produzidos no Brasil possam ser integrados, utilizados e compartilhados
+de forma ampla. Esse trabalho subsidiara o planejamento e
+desenvolvimento da infraestrutura nacional de dados do INPO, que sera
+capaz de integrar, gerenciar e disponibilizar informações para a
+comunidade científica, órgãos governamentais e sociedade.
+
+No primeiro ciclo, o Diagnóstico resultará em uma síntese das bases de
+dados atualmente disponíveis, contendo informações essenciais para a
+utilização por pesquisadores, inovadores e demais atores do ecossistema
+oceânico brasileiro. A planilha gerada reúne dados como sigla, nome
+completo, tipo de serviço, estado operacional, disponibilidade em tempo
+real, abertura dos dados, protocolos e APIs, tipos de interface e
+acesso, descrição da base, tipos e exemplos de dados oceanográficos,
+instituição responsável, cobertura geográfica, país, links, observações,
+protocolos de interoperabilidade, contato responsável e tipo de licença
+de uso (Tabela 1).
+
+Embora ainda seja um levantamento inicial, essa listagem já representa
+um passo importante para consolidar a infraestrutura de dados no país,
+oferecendo à comunidade científica e tecnológica uma visão organizada do
+que está disponível e permitindo planejar de forma mais eficiente o
+acesso, compartilhamento e integração de informações essenciais para
+pesquisa, inovação e tomada de decisão estratégica.
 
 ## Métodos
 
@@ -16,21 +156,22 @@ O levantamento das bases de dados oceânicas e ambientais foi realizado
 utilizando uma combinação de metodologias para garantir abrangência,
 qualidade e reprodutibilidade dos dados:
 
-1.  **Levantamento bibliográfico**
+1.  **Levantamento Bibliográfico**
 
-Foram consultados artigos científicos e revisões que tratam de bancos de
-dados relevantes para oceanografia e ciências ambientais.
+Foi realizado um evantamento bibliográfico de diagnósticos similares
+assim como de artigos científicos e revisões que tratam de bancos de
+dados voltados a oceanografia e ciências ambientais marinhas. O objetivo
+foi identificar repositórios tanto brasileiros quanto internacionais
+usados por pesquisadores.
 
-O objetivo foi identificar repositórios utilizados na prática pelos
-pesquisadores.
-
-Todas as referências bibliográficas utilizadas serão incluídas ao final
-do relatório.
+Nosso levantamento
 
 2.  **Consulta a especialistas**
 
-Realizamos entrevistas e consultas com especialistas da área.
-
+Definimos o publico alvo para consulta nesse relatorio,
+preferencialmente pesquisadores na area de ciencias oceanicas, e
+realizamos consultas com essas partes tanto atraves de entrevistas nao
+estruturadas como por questionario para levantamento de dados.
 Utilizamos a metodologia de bola de neve, na qual os especialistas
 indicavam outros pesquisadores para expandir a lista de bases e
 referências relevantes.
@@ -51,7 +192,7 @@ comunidade científica.
 4.  **Catalogação e harmonização das bases de dados**
 
 Todas as informações coletadas foram organizadas em uma planilha única
-(bases.csv) contendo colunas padronizadas, descritas na Tabela 1:
+(bases.csv) contendo colunas padronizadas, descritas na Tabela 1.
 
 ### Tabela 1 – Cabeçalhos da base de dados e possíveis valores
 
@@ -248,66 +389,6 @@ ggplot(dados_instituicoes, aes(area = n, fill = n, label = instituicao_responsav
 
 ![](Relatorio_files/figure-commonmark/unnamed-chunk-4-1.png)
 
-``` r
-library(dplyr)
-library(tidyr)
-library(stringr)
-library(networkD3)
-```
-
-    Warning: package 'networkD3' was built under R version 4.3.3
-
-``` r
-# --- Supondo que seus dados estão assim ---
-# dados <- read.csv("sua_planilha.csv") 
-# com colunas: pais, instituicao_responsavel_pela_base_de_dados
-
-# 1. Separar múltiplas instituições
-dados_long <- dados %>%
-  mutate(instituicao_responsavel_pela_base_de_dados = str_replace_all(instituicao_responsavel_pela_base_de_dados, " - |/|,", ",")) %>%
-  separate_rows(instituicao_responsavel_pela_base_de_dados, sep = ",") %>%
-  mutate(instituicao_responsavel_pela_base_de_dados = str_trim(instituicao_responsavel_pela_base_de_dados))
-
-# 2. Contar ocorrências de cada instituição por país
-contagem <- dados_long %>%
-  count(pais, instituicao_responsavel_pela_base_de_dados, sort = TRUE)
-
-# 3. Remover países que aparecem apenas uma vez
-pais_filtrados <- contagem %>% count(pais) %>% filter(n > 1) %>% pull(pais)
-contagem <- contagem %>% filter(pais %in% pais_filtrados)
-
-# 4. Criar nós
-nodes <- data.frame(name = c(unique(contagem$pais), unique(contagem$instituicao_responsavel_pela_base_de_dados)))
-
-# 5. Criar links e cores por país
-pais_cores <- c("Brasil" = "#1f77b4", "Internacional" = "#9467bd") # adicione todos os países com cores desejadas
-links <- contagem %>%
-  mutate(
-    source = match(pais, nodes$name) - 1,
-    target = match(instituicao_responsavel_pela_base_de_dados, nodes$name) - 1,
-    value = n,
-    linkColour = pais_cores[pais]
-  )
-
-# 6. Plot Sankey
-sankeyNetwork(
-  Links = links,
-  Nodes = nodes,
-  Source = "source",
-  Target = "target",
-  Value = "value",
-  NodeID = "name",
-  fontSize = 12,
-  nodeWidth = 30,
-  colourScale = 'd3.scaleOrdinal().domain(["Brasil","Internacional"]).range(["#1f77b4","#9467bd"])',
-  LinkGroup = "linkColour"
-)
-```
-
-    Links is a tbl_df. Converting to a plain data frame.
-
-![](Relatorio_files/figure-commonmark/unnamed-chunk-5-1.png)
-
 ### Exemplos de Dados Disponíveis
 
 ``` r
@@ -348,7 +429,7 @@ colors = brewer.pal(8, "Dark2")
 )
 ```
 
-![](Relatorio_files/figure-commonmark/unnamed-chunk-6-1.png)
+![](Relatorio_files/figure-commonmark/unnamed-chunk-5-1.png)
 
 ### Distribuição por País
 
@@ -361,7 +442,7 @@ coord_flip() +
 labs(x = "País", y = "Contagem", title = "Distribuição por País")
 ```
 
-![](Relatorio_files/figure-commonmark/unnamed-chunk-7-1.png)
+![](Relatorio_files/figure-commonmark/unnamed-chunk-6-1.png)
 
 ``` r
 library(dplyr)
@@ -390,4 +471,4 @@ dados %>%
   theme(legend.position = "none")
 ```
 
-![](Relatorio_files/figure-commonmark/unnamed-chunk-8-1.png)
+![](Relatorio_files/figure-commonmark/unnamed-chunk-7-1.png)

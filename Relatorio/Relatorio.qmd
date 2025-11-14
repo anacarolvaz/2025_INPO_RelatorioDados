@@ -210,22 +210,6 @@ ggplot(dados_instituicoes, aes(area = n, fill = n, label = instituicao_responsav
 
 ```
 
-```{r}
-library(ggplot2)
-
-dados %>%
-  separate_rows(instituicao, sep = ",|/|-") %>%
-  mutate(instituicao = trimws(instituicao)) %>%
-  count(pais, instituicao) %>%
-  ggplot(aes(x = pais, y = n, color = instituicao)) +
-  geom_point(size = 4) +
-  geom_segment(aes(x = pais, xend = pais, y = 0, yend = n), alpha = 0.3) +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-  labs(x = "País", y = "Número de aparições", color = "Instituição")
-
-```
-
 ### Exemplos de Dados Disponíveis
 
 ```{r}
