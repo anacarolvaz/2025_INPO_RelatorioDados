@@ -3,21 +3,22 @@ title: "Levantamento de Bases de Dados"
 format: gfm
 editor: visual
 ---
+
 ## Resumo
 
 ## Introdução
 
 Nesse relatório, o objetivo principal é apresentar um Diagnóstico Nacional sobre o Oceano, mapeando o cenário brasileiro de pesquisa, desenvolvimento e inovação (PD&I) marinha, com foco na gestão de dados oceânicos, infraestrutura de pesquisa, inovação tecnológica e aplicação do conhecimento científico pela sociedade. O diagnóstico busca identificar lacunas e demandas nacionais, apoiar políticas públicas, fortalecer a ciência baseada em evidências e gerar informações que subsidiem decisões estratégicas em setores governamentais, empresariais e acadêmicos. O estudo será desenvolvido em ciclos, permitindo foco em diferentes aspectos fundamentais da PD&I marinha, sendo o primeiro ciclo dedicado à infraestrutura de dados oceânicos, com o objetivo de mapear as bases de dados existentes, seus métodos e protocolos, promover a interoperabilidade e evitar silos de informação, garantindo que os dados produzidos no Brasil possam ser integrados, utilizados e compartilhados de forma ampla.
 
-*Contexto da Ciência Oceânica no Brasil e Evolução da Gestão de Dados*
+***Contexto da Ciência Oceânica no Brasil e Evolução da Gestão de Dados***
 
 Nas últimas duas décadas, a ciência oceânica no Brasil tem passado por mudanças significativas na disponibilidade, acessibilidade e gestão de dados. No início dos anos 2000, o armazenamento dos dados oceanográficos era fragmentado, nao somente no Brasil mas tambem no contexto mundial, com dados concentrados em laboratorios individuais de instituições de pesquisa. Nao havia uma grande padronização, nem como mecanismos compartilhados para disponibilidade desses dados compartilhamento. Nos ultimos 20 anos vimos uma mudanca nesse panorama, com o desenvolvimento de repositórios e plataformas de dados -- tantos nacionais como internacionais -- que permitem o compartilhamento de dados e acesso a fontes diversas. Plataformas nacionais como o SiBBr, INPE-BIG, INDE, em âmbito internacional, o WOD, SeaDataNet e PANGAEA, tem ampliado o acesso e a interoperabilidade de informações oceânicas.
 
-Um fator central dessa transformação é a expansão da coleta de dados, impulsionada por boias, sensores autônomos, veículos não tripulados, imagens de satélite e iniciativas de ciência cidadã. Os desafios recentes, tanto na ciência quanto na gestão baseada em evidências – em particular as mudanças climáticas – demandam um volume cada vez maior de dados, como ocorre em modelos do Sistema Terrestre Global, que assimilam informações para melhorar sua performance, ou em gêmeos digitais (digital twins), que replicam sistemas complexos para simulação e análise. Nesse contexto, observa-se também um crescente movimento de formação de redes nacionais e globais de observação. Essas mudanças colocam a pesquisa brasileira em oceanografia na era do big data, caracterizada por grandes volumes, formatos diversos e conjuntos de dados dispersos. Apesar dos avanços, ainda existe fragmentação, e os pesquisadores enfrentam desafios para localizar, acessar e integrar diferentes conjuntos de dados devido à falta de padronização e de protocolos de metadados consistentes.
+Um fator central dessa transformação é a expansão da coleta de dados, impulsionada por boias, sensores autônomos, veículos não tripulados, imagens de satélite e iniciativas de ciência cidadã. Os desafios recentes, tanto na ciência quanto na gestão baseada em evidências -- em particular as mudanças climáticas -- demandam um volume cada vez maior de dados, como ocorre em modelos do Sistema Terrestre Global, que assimilam informações para melhorar sua performance, ou em gêmeos digitais (digital twins), que replicam sistemas complexos para simulação e análise. Nesse contexto, observa-se também um crescente movimento de formação de redes nacionais e globais de observação. Essas mudanças colocam a pesquisa brasileira em oceanografia na era do big data, caracterizada por grandes volumes, formatos diversos e conjuntos de dados dispersos. Apesar dos avanços, ainda existe fragmentação, e os pesquisadores enfrentam desafios para localizar, acessar e integrar diferentes conjuntos de dados devido à falta de padronização e de protocolos de metadados consistentes.
 
 O gerenciamento adequado de dados de pesquisa é um desafio persistente. Dados bem organizados garantem que possam ser reutilizados além do projeto que os produziu. No Brasil, agências de fomento como CNPq, CAPES e FAPs têm incentivado políticas de ciência aberta, buscando assegurar a acessibilidade e preservação das informações científicas a longo prazo. A prática de disponibilizar dados de pesquisa é um princípio da ciência aberta, com impactos positivos na qualidade científica, na promoção de pesquisas interdisciplinares e na redução de esforços duplicados. Entretanto, iniciativas de dados abertos ainda enfrentam desafios estruturais no país, incluindo financiamento de longo prazo, manutenção de repositórios e necessidade de padronização nacional, o que reforça a importância de políticas integradas e investimentos contínuos em infraestrutura de dados.
 
-*O INPO*
+***O INPO***
 
 O Instituto Nacional de Pesquisas Oceânicas (INPO) é a única OS vinculada ao Ministério da Ciência, Tecnologia e Inovação (MCTI) atuante na área oceânica. O INPO atua como catalisador das atividades de PD&I na oceanografia brasileira, com missão de gerar e integrar conhecimento científico, apoiar políticas públicas e promover a inovação tecnológica, contribuindo para o desenvolvimento sustentável do país.
 
@@ -25,19 +26,19 @@ O INPO desenvolve processos estruturantes que fortalecem a capacidade nacional d
 
 Dentro do contrato de gestão, o INPO é responsável pelos Objetivos do Diagnóstico Nacional sobre o Oceano, cujo principal propósito é mapear o cenário brasileiro de PD&I marinha, subsidiando a Agenda Científica do INPO e apoiando decisões estratégicas em pesquisa, inovação e políticas públicas. Especificamente, o diagnóstico busca:
 
-- Identificar lacunas nacionais em P&D marinha;
+-   Identificar lacunas nacionais em P&D marinha;
 
-- Revelar os problemas prementes e suas correlações com eventos extremos e impactos da variabilidade climática e da ação antrópica no mar;
+-   Revelar os problemas prementes e suas correlações com eventos extremos e impactos da variabilidade climática e da ação antrópica no mar;
 
-- Identificar demandas dos sistemas públicos de gestão de riscos e prevenção de desastres;
+-   Identificar demandas dos sistemas públicos de gestão de riscos e prevenção de desastres;
 
-- Propiciar maior segurança nos investimentos e gerar emprego e renda em médio e longo prazos.
+-   Propiciar maior segurança nos investimentos e gerar emprego e renda em médio e longo prazos.
 
 Os temas centrais incluem pesca e aquicultura marinha, fontes de energia do oceano, transporte marítimo e operações portuárias, priorizando áreas que possam gerar produtos e serviços comercializáveis e subsidiar a elaboração de policy briefs e a implementação do SID-Oceano.
 
 O diagnóstico será desenvolvido em ciclos, combinando diferentes abordagens metodológicas para garantir abrangência e representatividade. O processo está em andamento em 2025, e os resultados esperados incluem a consolidação da Agenda Científica do INPO, o fortalecimento da infraestrutura de dados e pesquisa, a geração de produtos e serviços inovadores e o fornecimento de subsídios estratégicos para políticas públicas e decisões empresariais.
 
-* Diagnóstico de Dados * 
+***Diagnóstico de Dados***
 
 O Diagnóstico Nacional sobre o Oceano é essencial para o desenvolvimento de uma infraestrutura de dados capaz de atender aos anseios e necessidades da comunidade científica, do setor empresarial e de inovação na área de oceanografia. O Diagnóstico também visa mapear as bases de dados existentes, seus métodos e protocolos, promover a interoperabilidade e evitar silos de informação, garantindo que os dados produzidos no Brasil possam ser integrados, utilizados e compartilhados de forma ampla. Esse trabalho subsidiara o planejamento e desenvolvimento da infraestrutura nacional de dados do INPO, que sera capaz de integrar, gerenciar e disponibilizar informações para a comunidade científica, órgãos governamentais e sociedade.
 
@@ -53,9 +54,9 @@ O levantamento das bases de dados oceânicas e ambientais foi realizado utilizan
 
 1.  **Levantamento Bibliográfico**
 
-Foi realizado um evantamento bibliográfico de diagnósticos similares assim como de artigos científicos e revisões que tratam de bancos de dados voltados a oceanografia e ciências ambientais marinhas. O objetivo foi identificar repositórios tanto brasileiros quanto internacionais usados por pesquisadores. 
+Foi realizado um evantamento bibliográfico de diagnósticos similares assim como de artigos científicos e revisões que tratam de bancos de dados voltados a oceanografia e ciências ambientais marinhas. O objetivo foi identificar repositórios tanto brasileiros quanto internacionais usados por pesquisadores.
 
-Nosso levantamento 
+Nosso levantamento
 
 2.  **Consulta a especialistas**
 
@@ -65,9 +66,9 @@ Definimos o publico alvo para consulta nesse relatorio, preferencialmente pesqui
 
 Desenvolvemos um questionário para entender:
 
-- Quais repositórios os pesquisadores usam para disponibilizar seus dados?
+-   Quais repositórios os pesquisadores usam para disponibilizar seus dados?
 
-- Quais repositórios utilizam para realizar suas análises e pesquisas?
+-   Quais repositórios utilizam para realizar suas análises e pesquisas?
 
 O questionário foi inicialmente distribuído a um grupo restrito de especialistas e, gradualmente, disponibilizado publicamente para a comunidade científica.
 

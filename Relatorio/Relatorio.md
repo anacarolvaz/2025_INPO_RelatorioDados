@@ -21,7 +21,8 @@ interoperabilidade e evitar silos de informação, garantindo que os dados
 produzidos no Brasil possam ser integrados, utilizados e compartilhados
 de forma ampla.
 
-*Contexto da Ciência Oceânica no Brasil e Evolução da Gestão de Dados*
+***Contexto da Ciência Oceânica no Brasil e Evolução da Gestão de
+Dados***
 
 Nas últimas duas décadas, a ciência oceânica no Brasil tem passado por
 mudanças significativas na disponibilidade, acessibilidade e gestão de
@@ -68,7 +69,7 @@ de repositórios e necessidade de padronização nacional, o que reforça a
 importância de políticas integradas e investimentos contínuos em
 infraestrutura de dados.
 
-*O INPO*
+***O INPO***
 
 O Instituto Nacional de Pesquisas Oceânicas (INPO) é a única OS
 vinculada ao Ministério da Ciência, Tecnologia e Inovação (MCTI) atuante
@@ -116,7 +117,7 @@ infraestrutura de dados e pesquisa, a geração de produtos e serviços
 inovadores e o fornecimento de subsídios estratégicos para políticas
 públicas e decisões empresariais.
 
-- Diagnóstico de Dados \*
+***Diagnóstico de Dados***
 
 O Diagnóstico Nacional sobre o Oceano é essencial para o desenvolvimento
 de uma infraestrutura de dados capaz de atender aos anseios e
