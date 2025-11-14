@@ -618,6 +618,8 @@ dados %>%
 
 ![](Relatorio_files/figure-commonmark/unnamed-chunk-8-1.png)
 
+## Referências
+
 <div id="refs" class="references csl-bib-body hanging-indent">
 
 <div id="ref-armstrong2019" class="csl-entry">
