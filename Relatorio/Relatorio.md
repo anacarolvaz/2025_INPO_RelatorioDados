@@ -517,6 +517,17 @@ colors = brewer.pal(8, "Dark2")
 
 *Cobertura de Dados*
 
+Levando em consideração a cobertura geográfica das bases de dados,
+definimos como nacionais aquelas que incluem dados costeiros do Brasil,
+dentro da Zona Econômica Exclusiva, no Oceano Atlântico Sudoeste ou
+Tropical, enquanto bases globais abrangem áreas além desses limites.
+Observa-se que a maioria das bases (n = 74) possui cobertura global,
+seguidas por 36 bases com cobertura nacional, e apenas 3 bases
+específicas do Atlântico Sul e Atlântico Tropical. Esses números
+evidenciam a predominância de bases com abrangência global, mas também
+indicam a existência de conjuntos de dados estratégicos para análises
+regionais e nacionais.
+
 ``` r
 library(dplyr)
 library(ggplot2)
@@ -538,6 +549,21 @@ dados %>%
 ```
 
 ![](Relatorio_files/figure-commonmark/unnamed-chunk-6-1.png)
+
+``` r
+# Contagem por cobertura de dados
+tipo_cobertura <- dados %>%
+  count(cobertura_dados, sort = TRUE)
+
+tipo_cobertura
+```
+
+    # A tibble: 3 × 2
+      cobertura_dados     n
+      <chr>           <int>
+    1 Global             74
+    2 Nacional           36
+    3 AtlanticoSul        3
 
 *Distribuição por País*
 
