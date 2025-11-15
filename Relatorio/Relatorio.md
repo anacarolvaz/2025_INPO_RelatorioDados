@@ -24,36 +24,36 @@ de forma ampla.
 ***Contexto da Ciência Oceânica no Brasil e Evolução da Gestão de
 Dados***
 
-Nas últimas duas décadas, a ciência oceânica no Brasil tem passado por
+Nas últimas duas décadas, a ciência oceânica no Brasil passou por
 mudanças significativas na disponibilidade, acessibilidade e gestão de
-dados. No início dos anos 2000, o armazenamento dos dados oceanográficos
-era fragmentado, nao somente no Brasil mas tambem no contexto mundial,
-com dados concentrados em laboratorios individuais de instituições de
-pesquisa. Nao havia uma grande padronização, nem como mecanismos
-compartilhados para disponibilidade desses dados compartilhamento. Nos
-ultimos 20 anos vimos uma mudanca nesse panorama, com o desenvolvimento
-de repositórios e plataformas de dados – tantos nacionais como
-internacionais – que permitem o compartilhamento de dados e acesso a
-fontes diversas. Plataformas nacionais como o SiBBr, INPE-BIG, INDE, em
-âmbito internacional, o WOD, SeaDataNet e PANGAEA, tem ampliado o acesso
-e a interoperabilidade de informações oceânicas.
+dados. No início dos anos 2000, o armazenamento de dados oceanográficos
+era fragmentado, não apenas no Brasil, mas também no contexto mundial,
+com informações concentradas em laboratórios individuais de instituições
+de pesquisa. Não havia grande padronização nem mecanismos consolidados
+para o compartilhamento desses dados.Nos últimos 20 anos, observamos uma
+transformação desse panorama, com o desenvolvimento de repositórios e
+plataformas de dados — tanto nacionais quanto internacionais — que
+permitem o compartilhamento e o acesso a fontes diversas. Plataformas
+nacionais como o SiBBr, INPE-BIG e INDE, e, em âmbito internacional, o
+WOD, SeaDataNet e o PANGAEA, ampliaram o acesso e a interoperabilidade
+de informações oceânicas.
 
 Um fator central dessa transformação é a expansão da coleta de dados,
 impulsionada por boias, sensores autônomos, veículos não tripulados,
 imagens de satélite e iniciativas de ciência cidadã. Os desafios
 recentes, tanto na ciência quanto na gestão baseada em evidências – em
-particular as mudanças climáticas – demandam um volume cada vez maior de
-dados, como ocorre em modelos do Sistema Terrestre Global, que assimilam
-informações para melhorar sua performance, ou em gêmeos digitais
-(digital twins), que replicam sistemas complexos para simulação e
-análise. Nesse contexto, observa-se também um crescente movimento de
-formação de redes nacionais e globais de observação. Essas mudanças
-colocam a pesquisa brasileira em oceanografia na era do big data,
-caracterizada por grandes volumes, formatos diversos e conjuntos de
-dados dispersos. Apesar dos avanços, ainda existe fragmentação, e os
-pesquisadores enfrentam desafios para localizar, acessar e integrar
-diferentes conjuntos de dados devido à falta de padronização e de
-protocolos de metadados consistentes.
+especial aqueles relacionados às mudanças climáticas – demandam um
+volume cada vez maior de dados. Isso inclui, por exemplo, modelos do
+Sistema Terrestre Global, que assimilam informações para aprimorar sua
+performance, e gêmeos digitais (digital twins), que replicam sistemas
+complexos para fins de simulação e análise. Nesse contexto, observa-se
+também um movimento crescente de formação de redes nacionais e globais
+de observação. As transformações em curso colocam a pesquisa brasileira
+em oceanografia na era do big data, marcada por grandes volumes de
+informação, múltiplos formatos e conjuntos de dados dispersos. Apesar
+dos avanços, a fragmentação ainda persiste, e pesquisadores enfrentam
+desafios para localizar, acessar e integrar diferentes bases devido à
+falta de padronização e de protocolos consistentes de metadados.
 
 O gerenciamento adequado de dados de pesquisa é um desafio persistente.
 Dados bem organizados garantem que possam ser reutilizados além do
@@ -82,8 +82,8 @@ O INPO desenvolve processos estruturantes que fortalecem a capacidade
 nacional de pesquisa, integram dados e infraestrutura e garantem a
 aplicabilidade do conhecimento pela sociedade, setor privado e órgãos
 governamentais. Entre esses projetos, destaca-se a implementação do SADD
-(Sistema de Acesso a Dados e Documentos Oceanográficos, nome
-provisório), que visa atender à demanda da comunidade científica por uma
+(Sistema de Armazenamento e Disponibilização de Dados **inventei
+arrumar**), que visa atender à demanda da comunidade científica por uma
 infraestrutura de dados interoperável e de fácil acesso, reunindo todos
 os dados oceanográficos e costeiros do Brasil.
 
@@ -107,7 +107,7 @@ públicas. Especificamente, o diagnóstico busca:
 Os temas centrais incluem pesca e aquicultura marinha, fontes de energia
 do oceano, transporte marítimo e operações portuárias, priorizando áreas
 que possam gerar produtos e serviços comercializáveis e subsidiar a
-elaboração de policy briefs e a implementação do SID-Oceano.
+elaboração de policy briefs e a implementação da infraestrutura SADD.
 
 O diagnóstico será desenvolvido em ciclos, combinando diferentes
 abordagens metodológicas para garantir abrangência e representatividade.
