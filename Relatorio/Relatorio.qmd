@@ -91,7 +91,7 @@ Todas as informações coletadas foram organizadas em uma planilha única (bases
 ### Tabela 1 – Cabeçalhos da base de dados e possíveis valores
 
 | Cabeçalho | Descrição | Possíveis valores / Observações |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | Sigla | Sigla ou código da base de dados | Texto livre |
 | Nome Completo | Nome completo da base | Texto livre |
 | Tipo de Serviço | Tipo de serviço fornecido pela base | Ex: Agregador, Portal, Catálogo |
@@ -256,6 +256,46 @@ ggplot(dados_separados, aes(area = n, fill = n, label = instituicao_responsavel_
   ) +
   scale_fill_gradient(low = "#78b5ea", high = "dodgerblue4") +
   labs(title = "Treemap das Instituições Responsáveis")
+```
+
+```{r}
+library(tidytext)
+library(dplyr)
+library(stringr)
+library(wordcloud)
+library(RColorBrewer)
+
+# Stop words em português + palavras irrelevantes
+
+stopwords_pt <- c(
+"de", "da", "do", "em", "para", "com", "e", "a", "o", "os", "as", "dados", "dado", 
+"no", "na", "nos", "nas", "por", "um", "uma", "uns", "umas",
+"são", "etc", "co", "como", "temática", "temáticas", "temático", "temáticos",
+"relativo", "relativa", "tipo", "hora"
+)
+
+# Preparar dados
+
+exemplos <- dados |>
+select(instituicao_responsavel_pela_base_de_dados) |>
+unnest_tokens(palavra, instituicao_responsavel_pela_base_de_dados) |>
+mutate(palavra = str_to_lower(palavra)) |>  # minúsculas
+filter(!palavra %in% stopwords_pt) |>      # remover stopwords
+filter(!str_detect(palavra, "^[0-9]+$")) |> # remover números
+count(palavra, sort = TRUE)
+
+# Nuvem de palavras
+
+wordcloud(
+words = exemplos$palavra,
+freq = exemplos$n,
+max.words = 100,
+min.freq = 1,
+scale = c(4,0.5),
+random.order = FALSE,
+colors = brewer.pal(8, "Dark2")
+)
+
 ```
 
 *Dados Disponiveis*

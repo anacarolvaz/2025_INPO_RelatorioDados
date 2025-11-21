@@ -515,6 +515,47 @@ ggplot(dados_separados, aes(area = n, fill = n, label = instituicao_responsavel_
 
 ![](Relatorio_files/figure-commonmark/unnamed-chunk-4-1.png)
 
+``` r
+library(tidytext)
+library(dplyr)
+library(stringr)
+library(wordcloud)
+library(RColorBrewer)
+
+# Stop words em português + palavras irrelevantes
+
+stopwords_pt <- c(
+"de", "da", "do", "em", "para", "com", "e", "a", "o", "os", "as", "dados", "dado", 
+"no", "na", "nos", "nas", "por", "um", "uma", "uns", "umas",
+"são", "etc", "co", "como", "temática", "temáticas", "temático", "temáticos",
+"relativo", "relativa", "tipo", "hora"
+)
+
+# Preparar dados
+
+exemplos <- dados |>
+select(instituicao_responsavel_pela_base_de_dados) |>
+unnest_tokens(palavra, instituicao_responsavel_pela_base_de_dados) |>
+mutate(palavra = str_to_lower(palavra)) |>  # minúsculas
+filter(!palavra %in% stopwords_pt) |>      # remover stopwords
+filter(!str_detect(palavra, "^[0-9]+$")) |> # remover números
+count(palavra, sort = TRUE)
+
+# Nuvem de palavras
+
+wordcloud(
+words = exemplos$palavra,
+freq = exemplos$n,
+max.words = 100,
+min.freq = 1,
+scale = c(4,0.5),
+random.order = FALSE,
+colors = brewer.pal(8, "Dark2")
+)
+```
+
+![](Relatorio_files/figure-commonmark/unnamed-chunk-5-1.png)
+
 *Dados Disponiveis*
 
 Realizamos uma limpeza e harmonização básica das variáveis listadas nas
@@ -579,7 +620,7 @@ colors = brewer.pal(8, "Dark2")
 )
 ```
 
-![](Relatorio_files/figure-commonmark/unnamed-chunk-5-1.png)
+![](Relatorio_files/figure-commonmark/unnamed-chunk-6-1.png)
 
 *Cobertura de Dados*
 
@@ -614,7 +655,7 @@ dados %>%
     panel.grid.minor = element_blank())
 ```
 
-![](Relatorio_files/figure-commonmark/unnamed-chunk-6-1.png)
+![](Relatorio_files/figure-commonmark/unnamed-chunk-7-1.png)
 
 ``` r
 # Contagem por cobertura de dados
@@ -653,7 +694,7 @@ labs(x = "País", y = "Número de Bases", title = "Distribuição por País") +
     panel.grid.minor = element_blank())
 ```
 
-![](Relatorio_files/figure-commonmark/unnamed-chunk-7-1.png)
+![](Relatorio_files/figure-commonmark/unnamed-chunk-8-1.png)
 
 ``` r
 library(dplyr)
@@ -682,7 +723,7 @@ dados %>%
   theme(legend.position = "none")
 ```
 
-![](Relatorio_files/figure-commonmark/unnamed-chunk-8-1.png)
+![](Relatorio_files/figure-commonmark/unnamed-chunk-9-1.png)
 
 ## Referências
 
