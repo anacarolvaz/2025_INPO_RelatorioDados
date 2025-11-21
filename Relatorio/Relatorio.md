@@ -263,12 +263,12 @@ Todas as informações coletadas foram organizadas em uma planilha única
 Para garantir consistência e relevância, aplicamos os seguintes
 critérios na seleção das bases de dados:
 
-- **Cobertura espacial**: somente bases com cobertura de dados no regiao
-  costeira do Brasil e/ou no Oceano Atlantico Sul e Tropical foram
+- **Cobertura espacial**: somente bases com cobertura de dados no região
+  costeira do Brasil e/ou no Oceano Atlântico Sul e Tropical foram
   incluidas.
 
-- **Disponibilidade online**: apenas bases acessíveis pela internet
-  foram incluídas.
+- **Disponibilidade**: apenas bases com critérios claros de acesso foram
+  incluídas.
 
 - **Catálogos de bases**: incluímos catálogos apenas quando continham
   links válidos para outras bases com dados efetivos.
@@ -281,12 +281,9 @@ critérios na seleção das bases de dados:
 - **Atualização e manutenção**: bases com histórico de atualização ou
   manutenção regular foram priorizadas.
 
-- **Redundância e duplicidade**: evitamos incluir múltiplas bases que
-  fornecem exatamente os mesmos dados sem valor agregado.
-
-  # Eu acho que tem que listar todas mesmo que isso aconteça. Dai para as análises a gente tira!
-
   # Incluir uma parte para as análises, que a gente não definiu ainda, né?
+
+*Análises*
 
 ## Resultados
 
