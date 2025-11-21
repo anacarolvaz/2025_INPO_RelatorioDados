@@ -21,6 +21,50 @@ interoperabilidade e evitar silos de informação, garantindo que os dados
 produzidos no Brasil possam ser integrados, utilizados e compartilhados
 de forma ampla.
 
+***O INPO***
+
+O Instituto Nacional de Pesquisas Oceânicas (INPO) é a única OS
+vinculada ao Ministério da Ciência, Tecnologia e Inovação (MCTI) atuante
+na área oceânica. O INPO atua como catalisador das atividades de PD&I na
+oceanografia brasileira, com missão de gerar e integrar conhecimento
+científico, apoiar políticas públicas e promover a inovação tecnológica,
+contribuindo para o desenvolvimento sustentável do país.
+
+O INPO desenvolve processos estruturantes que fortalecem a capacidade
+nacional de pesquisa, integram dados e infraestrutura e garantem a
+aplicabilidade do conhecimento pela sociedade, setor privado e órgãos
+governamentais. Entre esses projetos, destaca-se a implementação do
+Sistema de Armazenamento e Disponibilização de Dados (SADD , **inventei
+arrumar**), que visa atender à demanda da comunidade científica por uma
+infraestrutura de dados interoperável e de fácil acesso, reunindo todos
+os dados oceanográficos e costeiros do Brasil.
+
+*Acho que essa segunda parte (embaixo) tá meio confusa sobre o que é
+inpo e o que é diagnóstico, depois eu leio de novo e dou uma sugestao
+:)*
+
+O INPO é responsável pelos Objetivos do Diagnóstico Nacional sobre o
+Oceano, de acordo com o seu contrato de gestão. O principal propósito
+dessa iniciativa é mapear o cenário brasileiro de PD&I marinha,
+subsidiando a Agenda Científica do INPO e apoiando decisões estratégicas
+em pesquisa, inovação e políticas públicas. O diagnóstico busca:
+
+- Identificar lacunas nacionais em P&D marinha;
+
+- Revelar os problemas prementes e suas correlações com eventos extremos
+  e impactos da variabilidade climática e da ação antrópica no mar;
+
+- Identificar demandas dos sistemas públicos de gestão de riscos e
+  prevenção de desastres;
+
+- Propiciar maior segurança nos investimentos e gerar emprego e renda em
+  médio e longo prazos.
+
+Os temas centrais incluem pesca e aquicultura marinha, fontes de energia
+do oceano, transporte marítimo e operações portuárias, priorizando áreas
+que possam gerar produtos e serviços comercializáveis e subsidiar a
+elaboração de policy briefs e a implementação da infraestrutura SADD.
+
 ***Contexto da Ciência Oceânica no Brasil e Evolução da Gestão de
 Dados***
 
@@ -32,19 +76,20 @@ dados. No início dos anos 2000, o armazenamento de dados oceanográficos
 era fragmentado, não apenas no Brasil, mas também no contexto mundial,
 com informações concentradas em laboratórios individuais de instituições
 de pesquisa (REF). Não havia padronização nem mecanismos consolidados
-para o compartilhamento desses dados (REF).Nos últimos 20 anos, foi
+para o compartilhamento desses dados (REF). Nos últimos 20 anos, foi
 observada uma transformação desse panorama, com o desenvolvimento de
 repositórios e plataformas de dados — tanto nacionais quanto
 internacionais — que permitem o compartilhamento e o acesso a fontes
-diversas (REF). Plataformas nacionais como o SiBBr, INPE-BIG e INDE, e,
-em âmbito internacional, o WOD, SeaDataNet e o PANGAEA, ampliaram o
-acesso e a interoperabilidade de informações oceânicas.
+diversas (REF). Plataformas nacionais como o **SiBBr, INPE-BIG e INDE,
+e, em âmbito internacional, o WOD, SeaDataNet e o PANGAEA, ampliaram o
+acesso e a interoperabilidade de informações oceânicas. (*arrumar
+siglas***)
 
 Um fator central dessa transformação é a expansão da coleta de dados,
 impulsionada por boias, sensores autônomos, veículos não tripulados,
-imagens de satélite e iniciativas de ciência cidadã. \#não acho que seja
+imagens de satélite e iniciativas de ciência cidadã. *não acho que seja
 isso, mas sim o desenvolvimento computacional - de qualquer forma
-precisa de uma referencia Os desafios recentes, tanto na ciência quanto
+precisa de uma referencia* Os desafios recentes, tanto na ciência quanto
 na gestão baseada em evidências – em especial aqueles relacionados às
 mudanças climáticas – demandam um volume cada vez maior de dados. Isso
 inclui, por exemplo, modelos do Sistema Terrestre Global, que assimilam
@@ -73,52 +118,6 @@ de repositórios e necessidade de padronização nacional, o que reforça a
 importância de políticas integradas e investimentos contínuos em
 infraestrutura de dados.
 
-# colocar por escrito todas as siglas!
-
-***O INPO***
-
-O Instituto Nacional de Pesquisas Oceânicas (INPO) é a única OS
-vinculada ao Ministério da Ciência, Tecnologia e Inovação (MCTI) atuante
-na área oceânica. O INPO atua como catalisador das atividades de PD&I na
-oceanografia brasileira, com missão de gerar e integrar conhecimento
-científico, apoiar políticas públicas e promover a inovação tecnológica,
-contribuindo para o desenvolvimento sustentável do país.
-
-O INPO desenvolve processos estruturantes que fortalecem a capacidade
-nacional de pesquisa, integram dados e infraestrutura e garantem a
-aplicabilidade do conhecimento pela sociedade, setor privado e órgãos
-governamentais. Entre esses projetos, destaca-se a implementação do SADD
-(Sistema de Armazenamento e Disponibilização de Dados **inventei
-arrumar** primeiro o nome depois a sigla), que visa atender à demanda da
-comunidade científica por uma infraestrutura de dados interoperável e de
-fácil acesso, reunindo todos os dados oceanográficos e costeiros do
-Brasil.
-
-\#Acho que essa segunda parte (embaixo) tá meio confusa sobre o que é
-inpo e o que é diagnóstico, depois eu leio de novo e dou uma sugestao :)
-
-O INPO é responsável pelos Objetivos do Diagnóstico Nacional sobre o
-Oceano, de acordo com o seu contrato de gestão. O principal propósito
-dessa iniciativa é mapear o cenário brasileiro de PD&I marinha,
-subsidiando a Agenda Científica do INPO e apoiando decisões estratégicas
-em pesquisa, inovação e políticas públicas. O diagnóstico busca:
-
-- Identificar lacunas nacionais em P&D marinha;
-
-- Revelar os problemas prementes e suas correlações com eventos extremos
-  e impactos da variabilidade climática e da ação antrópica no mar;
-
-- Identificar demandas dos sistemas públicos de gestão de riscos e
-  prevenção de desastres;
-
-- Propiciar maior segurança nos investimentos e gerar emprego e renda em
-  médio e longo prazos.
-
-Os temas centrais incluem pesca e aquicultura marinha, fontes de energia
-do oceano, transporte marítimo e operações portuárias, priorizando áreas
-que possam gerar produtos e serviços comercializáveis e subsidiar a
-elaboração de policy briefs e a implementação da infraestrutura SADD.
-
 O diagnóstico será desenvolvido em ciclos, combinando diferentes
 abordagens metodológicas para garantir abrangência e representatividade.
 O processo está em andamento em 2025, e os resultados esperados incluem
@@ -146,11 +145,12 @@ dados atualmente disponíveis, contendo informações essenciais para a
 utilização por pesquisadores, inovadores e demais atores do ecossistema
 oceânico brasileiro. A planilha gerada reúne dados como sigla, nome
 completo, tipo de serviço, estado operacional, disponibilidade em tempo
-real, abertura dos dados, protocolos e APIs, tipos de interface e
-acesso, descrição da base, tipos e exemplos de dados oceanográficos,
-instituição responsável, cobertura geográfica, país, links, observações,
-protocolos de interoperabilidade, contato responsável e tipo de licença
-de uso (Tabela 1).
+real, abertura dos dados, se existe a disponibilidade de uma interface
+de Programação de Aplicações (APIs), tipos de interface de acesso,
+descrição da base, tipos e exemplos de dados oceanográficos, instituição
+responsável, cobertura geográfica, país, links, observações, protocolos
+de interoperabilidade, contato responsável e tipo de licença de uso
+(Tabela 1).
 
 Embora ainda seja um levantamento inicial, essa listagem já representa
 um passo importante para consolidar a infraestrutura de dados no país,
@@ -184,38 +184,45 @@ foi identificar repositórios tanto brasileiros quanto internacionais
 utilizados por pesquisadores.
 
 A ferramenta de busca utilizada foi o Google Scholar, e as seguintes
-palavras-chave foram utilizadas na busca: “repositorio dados
-oceanograficos”, “repositorios de oceanografia”, “oceanography
-repository”, “ocean data science initiative”.
+palavras-chave foram utilizadas na busca: “repositório dados
+oceanográficos”, “repositórios de oceanografia”, “oceanography
+repository”, “ocean data science initiative”, que é como infraestrutura
+de dados é reconhecida em muitos trabalhos internacionais.
 
 2.  **Consulta a especialistas**
 
-O publico alvo para consulta nesse relatorio foi, preferencialmente,
-pesquisadores na area de ciencias oceanicas. Foram realizamos consultas
+O público alvo para consulta nesse relatório foi, preferencialmente,
+pesquisadores na area de ciências oceanicas. Foram realizamos consultas
 com essas pessoas tanto através de entrevistas nao estruturadas como por
 questionario para levantamento de dados. A metodologia utilizada foi a
 bola de neve (REF), na qual os especialistas indicavam outros
 pesquisadores para expandir a lista de bases e referências relevantes.
 
-3.  **Questionário para a comunidade científica**
+3.  **Questionário para a comunidade cientifica**
 
 Foi elaborado no Google Forms com o objetivo de responder as seguintes
-perguntas principais: • Quais repositórios de dados os pesquisadores
-utilizam para disponibilizar seus dados? • Quais repositórios utilizam
-para realizar suas análises e pesquisas? • O que julgam importante
-encontrar num banco/repositório de dados? (ou isso fica só pra uso
-interno?) No total o questionário possui 22 perguntas como a de
-identificação dos pesquisadores, inclusive o nome dos laboratórios,
-região geográfica de pesquisa, área de investigação, e outros. Além
-disso, os pesquisadores foram questionados sobre a disponibilidade ou
-não das principais variáveis que utilizam em suas pesquisas em bases e
-repositórios de dados nacionais ou internacionais. Por fim, foram
-questionados sobre quais aspectos os pesquisadores julgam essenciais em
-uma base de dados e se teriam interesse em utilizar o Sistema de
-Armazenamento e Disponibilidade de Dados (SADD) do INPO. O questionário
-completo pode ser encontrado no Apêndice X (pdf – questionário). O
-questionário foi inicialmente distribuído por e-mail a um grupo restrito
-de 270 especialistas, incentivados a compartilhá-lo para suas redes de
+perguntas principais:
+
+• Quais repositórios de dados os pesquisadores utilizam para
+disponibilizar seus dados?
+
+• Quais repositórios utilizam para realizar suas análises e pesquisas?
+
+• O que julgam importante encontrar num banco/repositório de dados? *(ou
+isso fica só pra uso interno?)*
+
+No total o questionário possui 22 perguntas como a de identificação dos
+pesquisadores, inclusive o nome dos laboratórios, região geográfica de
+pesquisa, área de investigação, e outros. Além disso, os pesquisadores
+foram questionados sobre a disponibilidade ou não das principais
+variáveis que utilizam em suas pesquisas em bases e repositórios de
+dados nacionais ou internacionais. Por fim, foram questionados sobre
+quais aspectos os pesquisadores julgam essenciais em uma base de dados e
+se teriam interesse em utilizar o Sistema de Armazenamento e
+Disponibilidade de Dados (SADD) do INPO. O questionário completo pode
+ser encontrado no Apêndice X (pdf – questionário). O questionário foi
+inicialmente distribuído por e-mail a um grupo restrito de 270
+especialistas, incentivados a compartilhá-lo para suas redes de
 colaboradores buscando o amplo alcance da comunidade científica do
 Brasil. E, ficou disponível dos dias 12 a 30 de novembro de 2025.
 
