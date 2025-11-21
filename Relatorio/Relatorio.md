@@ -24,40 +24,40 @@ de forma ampla.
 ***Contexto da Ciência Oceânica no Brasil e Evolução da Gestão de
 Dados***
 
-<!--# comentario  -->
-
-# Acho que precisa definir o que se entende por ciencia oceanica primeiro.
+## Acho que precisa definir o que se entende por ciencia oceanica primeiro
 
 Nas últimas duas décadas, a ciência oceânica no Brasil passou por
 mudanças significativas na disponibilidade, acessibilidade e gestão de
 dados. No início dos anos 2000, o armazenamento de dados oceanográficos
 era fragmentado, não apenas no Brasil, mas também no contexto mundial,
 com informações concentradas em laboratórios individuais de instituições
-de pesquisa. Não havia grande padronização nem mecanismos consolidados
-para o compartilhamento desses dados.Nos últimos 20 anos, observamos uma
-transformação desse panorama, com o desenvolvimento de repositórios e
-plataformas de dados — tanto nacionais quanto internacionais — que
-permitem o compartilhamento e o acesso a fontes diversas. Plataformas
-nacionais como o SiBBr, INPE-BIG e INDE, e, em âmbito internacional, o
-WOD, SeaDataNet e o PANGAEA, ampliaram o acesso e a interoperabilidade
-de informações oceânicas.
+de pesquisa (REF). Não havia padronização nem mecanismos consolidados
+para o compartilhamento desses dados (REF).Nos últimos 20 anos, foi
+observada uma transformação desse panorama, com o desenvolvimento de
+repositórios e plataformas de dados — tanto nacionais quanto
+internacionais — que permitem o compartilhamento e o acesso a fontes
+diversas (REF). Plataformas nacionais como o SiBBr, INPE-BIG e INDE, e,
+em âmbito internacional, o WOD, SeaDataNet e o PANGAEA, ampliaram o
+acesso e a interoperabilidade de informações oceânicas.
 
 Um fator central dessa transformação é a expansão da coleta de dados,
 impulsionada por boias, sensores autônomos, veículos não tripulados,
-imagens de satélite e iniciativas de ciência cidadã. Os desafios
-recentes, tanto na ciência quanto na gestão baseada em evidências – em
-especial aqueles relacionados às mudanças climáticas – demandam um
-volume cada vez maior de dados. Isso inclui, por exemplo, modelos do
-Sistema Terrestre Global, que assimilam informações para aprimorar sua
-performance, e gêmeos digitais (digital twins), que replicam sistemas
-complexos para fins de simulação e análise. Nesse contexto, observa-se
-também um movimento crescente de formação de redes nacionais e globais
-de observação. As transformações em curso colocam a pesquisa brasileira
-em oceanografia na era do big data, marcada por grandes volumes de
-informação, múltiplos formatos e conjuntos de dados dispersos. Apesar
-dos avanços, a fragmentação ainda persiste, e pesquisadores enfrentam
-desafios para localizar, acessar e integrar diferentes bases devido à
-falta de padronização e de protocolos consistentes de metadados.
+imagens de satélite e iniciativas de ciência cidadã. \#não acho que seja
+isso, mas sim o desenvolvimento computacional - de qualquer forma
+precisa de uma referencia Os desafios recentes, tanto na ciência quanto
+na gestão baseada em evidências – em especial aqueles relacionados às
+mudanças climáticas – demandam um volume cada vez maior de dados. Isso
+inclui, por exemplo, modelos do Sistema Terrestre Global, que assimilam
+informações para aprimorar sua performance, e gêmeos digitais (digital
+twins), que replicam sistemas complexos para fins de simulação e
+análise. Nesse contexto, observa-se também um movimento crescente de
+formação de redes nacionais e globais de observação. As transformações
+em curso colocam a pesquisa brasileira em oceanografia na era do big
+data, marcada por grandes volumes de informação, múltiplos formatos e
+conjuntos de dados dispersos. Apesar dos avanços, a fragmentação ainda
+persiste, e pesquisadores enfrentam desafios para localizar, acessar e
+integrar diferentes bases devido à falta de padronização e de protocolos
+consistentes de metadados.
 
 O gerenciamento adequado de dados de pesquisa é um desafio persistente.
 Dados bem organizados garantem que possam ser reutilizados além do
@@ -73,6 +73,8 @@ de repositórios e necessidade de padronização nacional, o que reforça a
 importância de políticas integradas e investimentos contínuos em
 infraestrutura de dados.
 
+# colocar por escrito todas as siglas!
+
 ***O INPO***
 
 O Instituto Nacional de Pesquisas Oceânicas (INPO) é a única OS
@@ -87,15 +89,19 @@ nacional de pesquisa, integram dados e infraestrutura e garantem a
 aplicabilidade do conhecimento pela sociedade, setor privado e órgãos
 governamentais. Entre esses projetos, destaca-se a implementação do SADD
 (Sistema de Armazenamento e Disponibilização de Dados **inventei
-arrumar**), que visa atender à demanda da comunidade científica por uma
-infraestrutura de dados interoperável e de fácil acesso, reunindo todos
-os dados oceanográficos e costeiros do Brasil.
+arrumar** primeiro o nome depois a sigla), que visa atender à demanda da
+comunidade científica por uma infraestrutura de dados interoperável e de
+fácil acesso, reunindo todos os dados oceanográficos e costeiros do
+Brasil.
 
-Dentro do contrato de gestão, o INPO é responsável pelos Objetivos do
-Diagnóstico Nacional sobre o Oceano, cujo principal propósito é mapear o
-cenário brasileiro de PD&I marinha, subsidiando a Agenda Científica do
-INPO e apoiando decisões estratégicas em pesquisa, inovação e políticas
-públicas. Especificamente, o diagnóstico busca:
+\#Acho que essa segunda parte (embaixo) tá meio confusa sobre o que é
+inpo e o que é diagnóstico, depois eu leio de novo e dou uma sugestao :)
+
+O INPO é responsável pelos Objetivos do Diagnóstico Nacional sobre o
+Oceano, de acordo com o seu contrato de gestão. O principal propósito
+dessa iniciativa é mapear o cenário brasileiro de PD&I marinha,
+subsidiando a Agenda Científica do INPO e apoiando decisões estratégicas
+em pesquisa, inovação e políticas públicas. O diagnóstico busca:
 
 - Identificar lacunas nacionais em P&D marinha;
 
@@ -125,13 +131,13 @@ públicas e decisões empresariais.
 
 O Diagnóstico Nacional sobre o Oceano é essencial para o desenvolvimento
 de uma infraestrutura de dados capaz de atender aos anseios e
-necessidades da comunidade científica, do setor empresarial e de
-inovação na área de oceanografia. O Diagnóstico também visa mapear as
-bases de dados existentes, seus métodos e protocolos, promover a
-interoperabilidade e evitar silos de informação, garantindo que os dados
-produzidos no Brasil possam ser integrados, utilizados e compartilhados
-de forma ampla. Esse trabalho subsidiara o planejamento e
-desenvolvimento da infraestrutura nacional de dados do INPO, que sera
+necessidades da comunidade científica, do setor empresarial (eu tiraria
+isso) e de inovação na área de oceanografia. O Diagnóstico também visa
+mapear as bases de dados existentes, seus métodos e protocolos, promover
+a interoperabilidade e evitar silos de informação, garantindo que os
+dados produzidos no Brasil possam ser integrados, utilizados e
+compartilhados de forma ampla. Esse trabalho subsidiara o planejamento e
+desenvolvimento da infraestrutura nacional de dados do INPO, que será
 capaz de integrar, gerenciar e disponibilizar informações para a
 comunidade científica, órgãos governamentais e sociedade.
 
@@ -153,51 +159,67 @@ que está disponível e permitindo planejar de forma mais eficiente o
 acesso, compartilhamento e integração de informações essenciais para
 pesquisa, inovação e tomada de decisão estratégica.
 
+# Eu acho que faltou um paragráfo final “objetivo-conclusivo”, alguma coisa nessa linha:
+
+“Portanto, o primeiro ciclo do Diagnótico, focado em entender os tipos
+de infra-estrutura de dados busca organizar essa informação analisando
+de forma objetiva as lacunas e oportunidade da oceanografia do Brasil de
+acordo com a disponibilidade de dados. Esse ciclo é parte essencial para
+um diagnostico nacional das ciencias oceanicas.”
+
 ## Métodos
 
 ### Levantamento de bases de dados
 
-O levantamento das bases de dados oceânicas e ambientais foi realizado
-utilizando uma combinação de metodologias para garantir abrangência,
-qualidade e reprodutibilidade dos dados:
+O levantamento das bases de dados que incluem dados do oceano foi
+realizado utilizando uma combinação de metodologias para garantir
+abrangência, qualidade e reprodutibilidade dos dados:
 
 1.  **Levantamento Bibliográfico**
 
-Foi realizado um evantamento bibliográfico de diagnósticos similares
+Foi realizado um levantamento bibliográfico de diagnósticos similares
 assim como de artigos científicos e revisões que tratam de bancos de
 dados voltados a oceanografia e ciências ambientais marinhas. O objetivo
 foi identificar repositórios tanto brasileiros quanto internacionais
-usados por pesquisadores.
+utilizados por pesquisadores.
 
 A ferramenta de busca utilizada foi o Google Scholar, e as seguintes
-sequencias de frases foram utilizadas na busca “repositorio dados
+palavras-chave foram utilizadas na busca: “repositorio dados
 oceanograficos”, “repositorios de oceanografia”, “oceanography
 repository”, “ocean data science initiative”.
 
 2.  **Consulta a especialistas**
 
-Definimos o publico alvo para consulta nesse relatorio,
-preferencialmente pesquisadores na area de ciencias oceanicas, e
-realizamos consultas com essas partes tanto atraves de entrevistas nao
-estruturadas como por questionario para levantamento de dados.
-Utilizamos a metodologia de bola de neve, na qual os especialistas
-indicavam outros pesquisadores para expandir a lista de bases e
-referências relevantes.
+O publico alvo para consulta nesse relatorio foi, preferencialmente,
+pesquisadores na area de ciencias oceanicas. Foram realizamos consultas
+com essas pessoas tanto através de entrevistas nao estruturadas como por
+questionario para levantamento de dados. A metodologia utilizada foi a
+bola de neve (REF), na qual os especialistas indicavam outros
+pesquisadores para expandir a lista de bases e referências relevantes.
 
 3.  **Questionário para a comunidade científica**
 
-Desenvolvemos um questionário para entender:
+Foi elaborado no Google Forms com o objetivo de responder as seguintes
+perguntas principais: • Quais repositórios de dados os pesquisadores
+utilizam para disponibilizar seus dados? • Quais repositórios utilizam
+para realizar suas análises e pesquisas? • O que julgam importante
+encontrar num banco/repositório de dados? (ou isso fica só pra uso
+interno?) No total o questionário possui 22 perguntas como a de
+identificação dos pesquisadores, inclusive o nome dos laboratórios,
+região geográfica de pesquisa, área de investigação, e outros. Além
+disso, os pesquisadores foram questionados sobre a disponibilidade ou
+não das principais variáveis que utilizam em suas pesquisas em bases e
+repositórios de dados nacionais ou internacionais. Por fim, foram
+questionados sobre quais aspectos os pesquisadores julgam essenciais em
+uma base de dados e se teriam interesse em utilizar o Sistema de
+Armazenamento e Disponibilidade de Dados (SADD) do INPO. O questionário
+completo pode ser encontrado no Apêndice X (pdf – questionário). O
+questionário foi inicialmente distribuído por e-mail a um grupo restrito
+de 270 especialistas, incentivados a compartilhá-lo para suas redes de
+colaboradores buscando o amplo alcance da comunidade científica do
+Brasil. E, ficou disponível dos dias 12 a 30 de novembro de 2025.
 
-- Quais repositórios os pesquisadores usam para disponibilizar seus
-  dados?
-
-- Quais repositórios utilizam para realizar suas análises e pesquisas?
-
-O questionário foi inicialmente distribuído a um grupo restrito de
-especialistas e, gradualmente, disponibilizado publicamente para a
-comunidade científica.
-
-4.  **Catalogação e harmonização das bases de dados**
+4.  **Catalogação e harmonização (?) das bases de dados**
 
 Todas as informações coletadas foram organizadas em uma planilha única
 (bases.csv) contendo colunas padronizadas, descritas na Tabela 1.
@@ -235,7 +257,7 @@ Para garantir consistência e relevância, aplicamos os seguintes
 critérios na seleção das bases de dados:
 
 - **Cobertura espacial**: somente bases com cobertura de dados no regiao
-  costeira do Brasil ou no Oceano Atlantico Sul e Tropical foram
+  costeira do Brasil e/ou no Oceano Atlantico Sul e Tropical foram
   incluidas.
 
 - **Disponibilidade online**: apenas bases acessíveis pela internet
@@ -246,13 +268,18 @@ critérios na seleção das bases de dados:
 
 - **Bases em implementação**: incluímos bases em desenvolvimento apenas
   se apresentavam dados de teste ou estavam previstas para
-  disponibilização nos próximos seis meses.
+  disponibilização nos próximos seis meses. Eu não acho que essas tem
+  que entrar, porque tudo pode acontecer!
 
 - **Atualização e manutenção**: bases com histórico de atualização ou
   manutenção regular foram priorizadas.
 
 - **Redundância e duplicidade**: evitamos incluir múltiplas bases que
   fornecem exatamente os mesmos dados sem valor agregado.
+
+  # Eu acho que tem que listar todas mesmo que isso aconteça. Dai para as análises a gente tira!
+
+  # Incluir uma parte para as análises, que a gente não definiu ainda, né?
 
 ## Resultados
 

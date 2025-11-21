@@ -14,9 +14,8 @@ O objetivo principal desse relatório é apresentar um Diagnóstico Nacional sob
 
 ***Contexto da Ciência Oceânica no Brasil e Evolução da Gestão de Dados***
 
-::: callout-note
-## Acho que precisa definir o que se entende por ciencia oceanica primeiro.
-:::
+
+## Acho que precisa definir o que se entende por ciencia oceanica primeiro
 
 Nas últimas duas décadas, a ciência oceânica no Brasil passou por mudanças significativas na disponibilidade, acessibilidade e gestão de dados. No início dos anos 2000, o armazenamento de dados oceanográficos era fragmentado, não apenas no Brasil, mas também no contexto mundial, com informações concentradas em laboratórios individuais de instituições de pesquisa (REF). Não havia padronização nem mecanismos consolidados para o compartilhamento desses dados (REF).Nos últimos 20 anos, foi observada uma transformação desse panorama, com o desenvolvimento de repositórios e plataformas de dados — tanto nacionais quanto internacionais — que permitem o compartilhamento e o acesso a fontes diversas (REF). Plataformas nacionais como o SiBBr, INPE-BIG e INDE, e, em âmbito internacional, o WOD, SeaDataNet e o PANGAEA, ampliaram o acesso e a interoperabilidade de informações oceânicas.
 
@@ -50,13 +49,13 @@ O diagnóstico será desenvolvido em ciclos, combinando diferentes abordagens me
 
 ***Diagnóstico de Dados***
 
-O Diagnóstico Nacional sobre o Oceano é essencial para o desenvolvimento de uma infraestrutura de dados capaz de atender aos anseios e necessidades da comunidade científica, do setor empresarial (#eu tiraria isso) e de inovação na área de oceanografia. O Diagnóstico também visa mapear as bases de dados existentes, seus métodos e protocolos, promover a interoperabilidade e evitar silos de informação, garantindo que os dados produzidos no Brasil possam ser integrados, utilizados e compartilhados de forma ampla. Esse trabalho subsidiara o planejamento e desenvolvimento da infraestrutura nacional de dados do INPO, que será capaz de integrar, gerenciar e disponibilizar informações para a comunidade científica, órgãos governamentais e sociedade.
+O Diagnóstico Nacional sobre o Oceano é essencial para o desenvolvimento de uma infraestrutura de dados capaz de atender aos anseios e necessidades da comunidade científica, do setor empresarial (eu tiraria isso) e de inovação na área de oceanografia. O Diagnóstico também visa mapear as bases de dados existentes, seus métodos e protocolos, promover a interoperabilidade e evitar silos de informação, garantindo que os dados produzidos no Brasil possam ser integrados, utilizados e compartilhados de forma ampla. Esse trabalho subsidiara o planejamento e desenvolvimento da infraestrutura nacional de dados do INPO, que será capaz de integrar, gerenciar e disponibilizar informações para a comunidade científica, órgãos governamentais e sociedade.
 
 No primeiro ciclo, o Diagnóstico resultará em uma síntese das bases de dados atualmente disponíveis, contendo informações essenciais para a utilização por pesquisadores, inovadores e demais atores do ecossistema oceânico brasileiro. A planilha gerada reúne dados como sigla, nome completo, tipo de serviço, estado operacional, disponibilidade em tempo real, abertura dos dados, protocolos e APIs, tipos de interface e acesso, descrição da base, tipos e exemplos de dados oceanográficos, instituição responsável, cobertura geográfica, país, links, observações, protocolos de interoperabilidade, contato responsável e tipo de licença de uso (Tabela 1).
 
 Embora ainda seja um levantamento inicial, essa listagem já representa um passo importante para consolidar a infraestrutura de dados no país, oferecendo à comunidade científica e tecnológica uma visão organizada do que está disponível e permitindo planejar de forma mais eficiente o acesso, compartilhamento e integração de informações essenciais para pesquisa, inovação e tomada de decisão estratégica.
 
-#Eu acho que faltou um paragráfo final "objetivo-conclusivo", alguma coisa nessa linha:
+# Eu acho que faltou um paragráfo final "objetivo-conclusivo", alguma coisa nessa linha:
 
 "Portanto, o primeiro ciclo do Diagnótico, focado em entender os tipos de infra-estrutura de dados busca organizar essa informação analisando de forma objetiva as lacunas e oportunidade da oceanografia do Brasil de acordo com a disponibilidade de dados. Esse ciclo é parte essencial para um diagnostico nacional das ciencias oceanicas. "
 
@@ -87,7 +86,7 @@ Todas as informações coletadas foram organizadas em uma planilha única (bases
 ### Tabela 1 – Cabeçalhos da base de dados e possíveis valores
 
 | Cabeçalho | Descrição | Possíveis valores / Observações |
-|--------------------|-------------------------------|---------------------|
+|----|----|----|
 | Sigla | Sigla ou código da base de dados | Texto livre |
 | Nome Completo | Nome completo da base | Texto livre |
 | Tipo de Serviço | Tipo de serviço fornecido pela base | Ex: Agregador, Portal, Catálogo |
@@ -121,13 +120,13 @@ Para garantir consistência e relevância, aplicamos os seguintes critérios na 
 
 -   **Catálogos de bases**: incluímos catálogos apenas quando continham links válidos para outras bases com dados efetivos.
 
--   **Bases em implementação**: incluímos bases em desenvolvimento apenas se apresentavam dados de teste ou estavam previstas para disponibilização nos próximos seis meses. \# Eu não acho que essas tem que entrar, porque tudo pode acontecer!
+-   **Bases em implementação**: incluímos bases em desenvolvimento apenas se apresentavam dados de teste ou estavam previstas para disponibilização nos próximos seis meses. Eu não acho que essas tem que entrar, porque tudo pode acontecer!
 
 -   **Atualização e manutenção**: bases com histórico de atualização ou manutenção regular foram priorizadas.
 
 -   **Redundância e duplicidade**: evitamos incluir múltiplas bases que fornecem exatamente os mesmos dados sem valor agregado.
 
-    \# Eu acho que tem que listar todas mesmo que isso aconteça. Dai para as análises a gente tira!
+    # Eu acho que tem que listar todas mesmo que isso aconteça. Dai para as análises a gente tira!
 
     # Incluir uma parte para as análises, que a gente não definiu ainda, né?
 
